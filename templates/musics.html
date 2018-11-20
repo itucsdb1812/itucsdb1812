@@ -29,7 +29,7 @@
   <tbody>
 
                  {% for id,music in getmusics %}
-
+                        {% if id%2 ==1  %}
                              <tr>
                                  <th scope="row">{{id }}</th>
                                  <td>{{ music.musicname }}</td>
@@ -41,7 +41,7 @@
                                  <td>{{ music.musiccountry }}</td>
 
                           </tr>
-
+                        {%endif%}
                 {% endfor %}
 
 
