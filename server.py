@@ -1,26 +1,29 @@
 from flask import Flask, render_template
 from database import Database
-from tables import Book
+from tables import Music
 
 app = Flask(__name__)
 
-db = Database()
-bookdb = db.book
+db=Database()
 
-bookdb.add_book(Book("Enver", 2018, "tip1", 6053326045, 784, "Türkiye İş Bankası Kültür Yayınları"))
-bookdb.add_book(Book("Hayvan Çiftliği", 2018, "tür2", 9750719387, 152, "Can Yayınları"))
-bookdb.add_book(Book("Simyacı", 2018, "tür1", 9750726439, 184, "Can Yayınları"))
-bookdb.add_book(Book("Göçüp Gidenler Koleksiyoncusu", 2018, "tür3", 6602026351, 168, "Doğan Kitap"))
-bookdb.add_book(Book("Osmanlı Gerçekleri", 2018, "tür2", 6050827644, 288, "Timaş Yayınları"))
+musicdb=db.music
+
+musicdb.addMusic(Music("Annem","Zeki Müren","Türk Sanat Müziği","1975","Anne Sevgisi","Türkçe","Türkiye"))
+musicdb.addMusic(Music("asd","asdasd Müren","asdasd Sanat Müziği","2000","asdasd Sevgisi","asdasd","asdasd"))
+musicdb.addMusic(Music("qweqwe","Zeki qweqwe","Türk qweqwe Müziği","2005","qweqwe Sevgisi","qweqwe","qweqwe"))
+
+
+
 
 @app.route("/")
-def home_page():
-    return render_template("home.html")
+def index():
+    return render_template("index.html")
 
-@app.route("/books")
-def books_page():
-    books = bookdb.get_books()
-    return render_template("books.html", books=sorted(books))
+@app.route("/music",methods=["POST"])
+def musics():
+    getmusics = musicdb.listAllMusic()
+    return render_template("musics.html",getmusics=getmusics)
+
 
 if __name__ == "__main__":
-	app.run()
+    app.run()
