@@ -19,7 +19,7 @@ musicdb.addMusic(Music("Happy","Pharrell Williams","Pop","2013","Despicable Me 2
 musicdb.addMusic(Music("Coesur Volant","Zaz","Jazz","2011","Single","French","French"))
 musicdb.addMusic(Music("Human","Rag'n'Bone Man","Soul","2017","Human (Deluxe)","English","U.S.A."))
 musicdb.addMusic(Music("Pump It","Black Eyed Peas","Pop","2005","Monkey Business","English","U.S.A."))
-
+musicdb.addMusic(Music("The Thrill Is Gone","B.B. King","Jazz","1970","Deuces Wild","English","U.S.A."))
 
 
 
