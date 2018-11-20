@@ -14,7 +14,7 @@ class Database:
         def addMusic(self, music):
             with dbapi2.connect(self.url) as connection:
                 cursor = connection.cursor()
-                cursor.fetchone(
+                cursor.execute(
                     "INSERT INTO MUSIC (MUSICNAME, ARTIST, MUSICTYPE, RELEASEDATE, ALBUMNAME, MUSICLANGUAGE, MUSICCOUNTRY) VALUES (%s, %s, %s, %s, %s, %s, %s)",
                     (music.musicname, music.artist, music.musictype, music.releasedate, music.albumname, music.musiclanguage, music.musiccountry))
                 cursor.close()
