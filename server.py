@@ -19,7 +19,7 @@ musicdb.addMusic(Music("qweqwe","Zeki qweqwe","Türk qweqwe Müziği","2005","qw
 def index():
     return render_template("index.html")
 
-@app.route("/music",methods=["POST"])
+@app.route("/music",methods=["POST","GET"])
 def musics():
     getmusics = musicdb.listAllMusic()
     return render_template("musics.html",getmusics=getmusics)
