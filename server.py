@@ -9,8 +9,7 @@ db=Database()
 musicdb=db.music
 
 musicdb.addMusic(Music("Annem","Zeki Müren","Türk Sanat Müziği","1975","Anne Sevgisi","Türkçe","Türkiye"))
-musicdb.addMusic(Music("asd","asdasd Müren","asdasd Sanat Müziği","2000","asdasd Sevgisi","asdasd","asdasd"))
-musicdb.addMusic(Music("qweqwe","Zeki qweqwe","Türk qweqwe Müziği","2005","qweqwe Sevgisi","qweqwe","qweqwe"))
+
 
 
 
