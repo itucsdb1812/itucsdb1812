@@ -14,7 +14,7 @@ musicdb.addMusic(Music("Annem","Zeki Müren","Türk Sanat Müziği","1975","Anne
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html",methods=["POST","GET"])
 
 @app.route("/music",methods=["POST","GET"])
 def musics():
