@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Look List </title>
+
+<style>
+
+table {
+    width: 50%;
+}
+
+th {
+    height: 50px;
+}
+
+
+</style>
+
+
+</head>
+<body>
+<div class="bg-secondary text-white">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+   <form action="/home" method="post">
+       <button type="sumbit" class="btn btn-warning font-weight-bold">HOME</button>
+   </form>
+
+     <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+  </ul>
+</nav>
+<br>
+{% for userplaylist in userplaylists %}
+        {% if userplaylist.id == idd %}
+            <br>
+           <center>
+               <a class="btn btn-dark text-white font-weight-bold w-25">  {{userplaylist.playlistname}} </a>
+               </center>
+            <br>
+
+        {% endif %}
+{% endfor %}
+
+
+
+<center>
+
+<table class="table table-sm table-striped table-dark w-75">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Song Name</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Type</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Album Name</th>
+        <th scope="col">Language</th>
+        <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for playlistmusic in playlistmusics %}
+    {% if playlistmusic.userplaylistid == idd %}
+                 {% for music in musics %}
+                        {% if playlistmusic.musicid == music.id %}
+                             <tr>
+                                 <th scope="row">{{ music.id }}</th>
+                                 <td>{{ music.musicname }}</td>
+                                 <td>{{ music.artist }}</td>
+                                 <td>{{ music.musictype }}</td>
+                                 <td>{{ music.musicreleasedate }}</td>
+                                 <td>{{ music.albumname }}</td>
+                                 <td>{{ music.musiclanguage }}</td>
+                                  <td>{{ music.musiccountry }}</td>
+
+                             <td>  <a href=""  class="badge badge-warning font-weight-bold"> Play </a> </td>
+                             <td>   <a href="/deletemusicfromlist/{{ music.id }}{{ idd }}" class="badge badge-warning font-weight-bold"> Remove </a></td>
+                            </tr>
+                        {% endif %}
+                {% endfor %}
+
+        {% endif %}
+
+{% endfor %}
+
+
+  </tbody>
+</table>
+
+
+
+
+
+<form action="/showmusiclist">
+    <button type="submit" class="btn btn-dark text-white font-weight-bold w-25"> SHOW MUSIC LIST </button>
+</form>
+<br>
+
+<table class="table table-sm table-dark w-75">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Song Name</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+
+                 {% for music in musics %}
+
+                             <tr>
+                                 <th scope="row">{{ music.id }}</th>
+                                 <td>{{ music.musicname }}</td>
+                                 <td>{{ music.artist }}</td>
+                                 <td>{{ music.musictype }}</td>
+
+
+
+
+
+
+                            <form action="/addmusictolist/{{ idd }}{{ music.id }}" method="post">
+                                <td> <button type="submit" class="badge badge-warning font-weight-bold w-75"> ADD </button></td>
+                            </form>
+
+
+
+
+
+                            </tr>
+
+                {% endfor %}
+
+
+
+
+  </tbody>
+</table>
+</center>
+
+
+
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
