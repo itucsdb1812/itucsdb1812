@@ -1,126 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>MAIN PAGE</title>
+    <title>Title</title>
 </head>
 <body>
-<div class="p-3 mb-2 bg-light text-dark">
 
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<form action="/music" method="post">
 
-
-
-     <ul class="navbar-nav">
-
-     <li class="nav-item">
-         <form action="/admin" method="post">
- {% if kullaniciid == 1 or kullaniciid == 2 %}
-    <button type="submit" class="btn btn-warning font-weight-bold"> ADMIN PAGE </button>
- {% else %}
-<button type="submit" hidden="hidden" class="btn btn-warning font-weight-bold"> ADMIN PAGE </button>
- {% endif %}
-</form>
-
-        </li>
- <li class="nav-item">
-     | | | |
-     </li>
-
-    <li class="nav-item">
-      <form action="/signin" method="post">
-
-     {% if kullaniciid != 0 %}
-        <button type="submit" hidden="hidden" class="btn btn-warning font-weight-bold"> SIGN IN </button>
-     {% else %}
-         <button type="submit" class="btn btn-warning font-weight-bold"> SIGN IN </button>
-     {% endif %}
-</form>
-    </li>
-
-     <li class="nav-item">
-     | | | |
-     </li>
-
-    <li class="nav-item">
-     <form action="/register" method="post">
-{% if kullaniciid == 0 %}
-     <button type="submit" class="btn btn-warning font-weight-bold"> REGISTER </button>
-{% else %}
-    <button type="submit" hidden="hidden" class="btn btn-warning font-weight-bold"> REGISTER </button>
-{% endif %}
+    <button type="submit"> MUSICS </button>
 
 </form>
-    </li>
-
-<li class="nav-item">
-     | | | |
-     </li>
-
-
-    <li class="nav-item">
-      <form action="/mylist" method="get">
-
-    {% if kullaniciid == 0 %}
-        <button type="submit" hidden="hidden" class="btn btn-warning font-weight-bold"> GO MY LISTS </button>
-    {% else %}
-        <button type="submit" class="btn btn-warning font-weight-bold"> GO MY LISTS </button>
-    {% endif %}
-
-</form>
-    </li>
-
-<li class="nav-item">
-     | | | | |  | | | | |  | | | | |   <button class="btn btn-secondary font-weight-bold text-warning"> SONGS ON THE NAPKIN </button>  | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
-     </li>
-
-             <li class="nav-item float-right">
-<form action="/exit" method="post">
- {% if kullaniciid == 0 %}
-    <button type="submit" hidden="hidden" class="btn btn-warning font-weight-bold">  EXIT  </button>
-{% else %}
-    <button type="submit" class="btn btn-warning font-weight-bold float-right">  EXIT  </button>
- {% endif %}
-</form>
-    </li>
-
-  </ul>
-</nav>
-
-<br><br><br>
 
 
 
-<h1> KULLANICI ID = {{ kullaniciid }}</h1>
-{% if kullaniciid == 0 %}
-   <h1>Giris yapılmadı</h1>
-{% else %}
-    <h1> WELCOME {{ usrnm }}</h1>
-{% endif %}
-
-
-<br>
-
-
-
-
-
-<br>
-
-
-
-
-
-
-
-
-
-
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
