@@ -25,6 +25,9 @@ def musics():
     getmusics = musicdb.listAllMusic()
     return render_template("musics.html",getmusics=getmusics)
 
+@app.route("/signin",methods=["POST","GET"])
+def signin():
+    return("signin.html")
 
 if __name__ == "__main__":
     app.run()
