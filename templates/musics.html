@@ -48,19 +48,19 @@
   <tbody>
 
                  {% for id,music in getmusics %}
-                        {% if id%2 ==1  %}
-                             <tr>
-                                 <th scope="row">{{id }}</th>
-                                 <td>{{ music.musicname }}</td>
-                                 <td>{{ music.artist }}</td>
-                                 <td>{{ music.musictype }}</td>
-                                 <td>{{ music.releasedate }}</td>
-                                 <td>{{ music.albumname }}</td>
-                                 <td>{{ music.musiclanguage }}</td>
-                                 <td>{{ music.musiccountry }}</td>
 
-                          </tr>
-                        {%endif%}
+                        <tr>
+                             <th scope="row">{{id }}</th>
+                             <td>{{ music.musicname }}</td>
+                             <td>{{ music.artist }}</td>
+                             <td>{{ music.musictype }}</td>
+                             <td>{{ music.releasedate }}</td>
+                             <td>{{ music.albumname }}</td>
+                             <td>{{ music.musiclanguage }}</td>
+                             <td>{{ music.musiccountry }}</td>
+
+                        </tr>
+
                 {% endfor %}
 
 

@@ -23,6 +23,7 @@ class Database:
 
 
         def listAllMusic(self):
+            connection = None
             Musics = []
             try:
                 connection = dbapi2.connect(self.url)
@@ -40,3 +41,6 @@ class Database:
                     connection.close()
 
             return Musics
+
+db=Database()
+musicdb=db.music
