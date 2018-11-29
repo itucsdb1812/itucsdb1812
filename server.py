@@ -4,14 +4,18 @@ from database import musicdb
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods=["POST","GET"])
 def index():
-    return render_template("index.html",methods=["POST","GET"])
+    return render_template("index.html")
 
 @app.route("/music",methods=["POST","GET"])
 def musics():
     getmusics = musicdb.listAllMusic()
     return render_template("musics.html", getmusics=getmusics)
+
+@app.route("/addmusic",methods=["POST","GET"])
+def addmusictothelist:
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
