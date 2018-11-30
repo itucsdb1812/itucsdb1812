@@ -14,7 +14,7 @@ def musics():
     return render_template("musics.html", getmusics=getmusics)
 
 @app.route("/addmusic",methods=["POST","GET"])
-def addmusictolist:
+def addmusictolist():
     return render_template("index.html")
 
 
