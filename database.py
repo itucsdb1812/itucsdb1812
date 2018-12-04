@@ -17,7 +17,7 @@ class Database:
                 cursor = connection.cursor()
                 cursor.execute(
                     "INSERT INTO MUSIC (MUSICNAME, ARTIST, MUSICTYPE, RELEASEDATE, ALBUMNAME, MUSICLANGUAGE, MUSICCOUNTRY) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-                    (music.musicname, music.artist, music.musictype, music.releasedate, music.albumname, music.musiclanguage, music.musiccountry))
+                    (self.music.musicname, self.music.artist, self.music.musictype, self.music.releasedate, self.music.albumname, self.music.musiclanguage, self.music.musiccountry))
                 cursor.close()
 
 
