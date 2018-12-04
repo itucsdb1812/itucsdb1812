@@ -4,18 +4,20 @@ from database import musicdb
 
 app = Flask(__name__)
 
+
 @app.route("/",methods=["POST","GET"])
 def index():
     return render_template("index.html")
 
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    getmusics = musicdb.listAllMusic()
-    return render_template("musics.html", getmusics=getmusics)
-
-@app.route("/addmusic",methods=["POST","GET"])
-def addmusictolist:
-    return render_template("index.html")
+    connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM music")
+    getmusics = cursor.fetchall()
+    session['getmusics'] = getmusics
+    cursor.close()
+    return render_template("musics.html")
 
 
 if __name__ == "__main__":
