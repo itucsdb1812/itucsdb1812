@@ -18,6 +18,8 @@ INIT_STATEMENTS = [
         PLAYLIST_ID    SERIAL PRIMARY KEY,
         PLAYLISTNAME   VARCHAR(50),
         USERID         INTEGER REFERENCES USERS (ID)
+                       ON UPDATE CASCADE
+                       ON DELETE CASCADE
     )  """,
 
     """         
@@ -35,8 +37,12 @@ INIT_STATEMENTS = [
         """         
     CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (
         ID               SERIAL PRIMARY KEY,
-        USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID),
+        USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID)
+                         ON UPDATE CASCADE
+                         ON DELETE CASCADE,
         MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)
+                         ON UPDATE CASCADE
+                         ON DELETE CASCADE
     )  """,     
 ]
 
