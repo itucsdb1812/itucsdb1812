@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 # from database import Database
-from database import musicdb
+
 
 app = Flask(__name__)
 
