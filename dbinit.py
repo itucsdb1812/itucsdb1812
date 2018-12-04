@@ -3,13 +3,36 @@ import sys
 import psycopg2 as dbapi2
 
 
-INIT_STATEMENTS = [
-            "CREATE TABLE users (id SERIAL PRIMARY KEY, username VARCHAR(30) NOT NULL, password VARCHAR(20) NOT NULL)",
-            "CREATE TABLE userplaylist (playlist_id SERIAL PRIMARY KEY, playlistname VARCHAR(30) NOT NULL, userid INTEGER REFERENCES users (id))",        
-            "CREATE TABLE music (music_id SERIAL PRIMARY KEY, musicname VARCHAR(30) NOT NULL, artist VARCHAR(30), musictype VARCHAR(20), releasedate VARCHAR(10), albumname VARCHAR(100), musiclanguage VARCHAR(30), musiccountry VARCHAR(20) )",
-            "CREATE TABLE playlistmusic (id SERIAL PRIMARY KEY, userplaylistid INTEGER REFERENCES userplaylist (playlist_id), musicid INTEGER REFERENCES music (music_id) )",
-]
 
+INIT_STATEMENTS = [
+            
+     """CREATE TABLE IF NOT EXISTS USERS (
+        ID         SERIAL PRIMARY KEY,
+        EMAIL          VARCHAR(100),
+        USERNAME       VARCHAR(100),
+        PASSWORD       VARCHAR(100)       
+    )""",
+
+    """
+    CREATE TABLE IF NOT EXISTS USERPLAYLIST (
+        PLAYLIST_ID    SERIAL PRIMARY KEY,
+        PLAYLISTNAME   VARCHAR(50),
+        USERID         INTEGER REFERENCES USERS (ID)
+    )  """,
+
+    """         
+    CREATE TABLE IF NOT EXISTS MUSIC (
+        MUSIC_ID         SERIAL PRIMARY KEY,
+        MUSICNAME        VARCHAR(50),
+        ARTIST           VARCHAR(50),
+        MUSICTYPE        VARCHAR(50),
+        RELEASEDATE      VARCHAR(50),
+        ALBUMNAME        VARCHAR(50),
+        MUSICLANGUAGE    VARCHAR(50),
+        MUSICCOUNTRY     VARCHAR(50)
+    )  """,
+
+]
 
 def initialize(url):
     with dbapi2.connect(url) as connection:
