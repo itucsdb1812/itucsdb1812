@@ -13,7 +13,7 @@ def index():
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    connection = dbapi2.connect(self.url)
+    connection = dbapi2.connect(url)
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM music")
     getmusics = cursor.fetchall()
