@@ -32,6 +32,12 @@ INIT_STATEMENTS = [
         MUSICCOUNTRY     VARCHAR(50)
     )  """,
 
+        """         
+    CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (
+        ID               SERIAL PRIMARY KEY,
+        USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID),
+        MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)
+    )  """,     
 ]
 
 def initialize(url):
