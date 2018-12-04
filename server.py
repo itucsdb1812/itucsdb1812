@@ -11,7 +11,7 @@ def index():
 
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
+    connection = dbapi2.connect(self.url)
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM music")
     getmusics = cursor.fetchall()
