@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, redirect, request, session
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 import psycopg2 as dbapi2
 
 
