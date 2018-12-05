@@ -19,7 +19,7 @@ def index():
 def musics():
     connection = dbapi2.connect(url)
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM music")
+    cursor.execute("""SELECT * FROM music""")
     getmusics = cursor.fetchall()
     session['getmusics'] = getmusics
     cursor.close()
