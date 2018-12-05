@@ -248,6 +248,18 @@ def addmusictothelist(listid):
     return mylist(listid)
 # ADD MUSIC TO THE LIST FINAL
 
+# REMOVE MUSIC FROM LIST
+@app.route("/removemusicfromlist/<string:musicidd>",methods=["POST","GET"])
+def removemusicfromlist(musicidd):
+    listid = session['listid']
+    connection = dbapi2.connect(url)
+    cursor = connection.cursor()
+    cursor.execute("""DELETE FROM playlistmusic WHERE userplaylistid = %s AND musicid = %s """, (listid,musicidd))
+    connection.commit()
+    cursor.close()
+    return mylist(listid)
+# REMOVE MUSIC FROM LIST FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
