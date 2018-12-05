@@ -242,7 +242,7 @@ def addmusictothelist(listid):
     musicid = session['musicid']
     connection = dbapi2.connect(url)
     cursor = connection.cursor()
-    cursor.execute("INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)", (listid,musicid))
+    cursor.execute("""INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)""", (listid,musicid))
     connection.commit()
     cursor.close()
     return mylist(listid)
