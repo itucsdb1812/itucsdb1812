@@ -1,0 +1,54 @@
+{% extends "theme.html" %}
+
+
+{% block body %}
+    <br>
+           <div class="bg-warning text-dark w-25 rounded">
+           <center> <h1><b>{{ session.listname }}</b></h1> </center>
+     </div>
+
+    <br>
+
+
+<table class="table table-sm table-striped table-dark w-100 rounded">
+  <thead class="text-warning">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Song Name</th>
+      <th scope="col">Artist</th>
+      <th scope="col">Type</th>
+        <th scope="col">Date</th>
+        <th scope="col">Album Name</th>
+        <th scope="col">Language</th>
+        <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for row in session.musiclist %}
+
+                             <tr>
+                                 <th scope="row">{{ row[0] }}</th>
+                                 <td>{{ row[1] }}</td>
+                                 <td>{{ row[2] }}</td>
+                                 <td>{{ row[3] }}</td>
+                                 <td>{{ row[4] }}</td>
+                                 <td>{{ row[5] }}</td>
+                                 <td>{{ row[6] }}</td>
+                                 <td>{{ row[7] }}</td>
+
+                             <td>  <a href=""  class="badge badge-success font-weight-bold"> Play </a> </td>
+                             <td>   <a href="/removemusicfromlist/{{ row[0] }}" class="badge badge-warning font-weight-bold"> Remove </a></td>
+                            </tr>
+
+
+        {% endfor %}
+
+   </tbody>
+</table>
+
+    <br>
+
+     <a class="btn btn-dark" href="/music"><b>GO MUSIC LIST</b></a>
+
+{% endblock %}
