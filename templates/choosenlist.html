@@ -1,0 +1,43 @@
+{% extends "theme.html" %}
+
+
+
+{% block body %}
+
+        <br>
+       <div class="bg-warning text-dark w-50 rounded">
+           <center> <h2><b>Choose a List for this song :</b></h2> </center>
+     </div>
+
+    <br>
+
+         <div class="bg-dark text-light w-50 rounded">
+         <center>   <h4>" {{ session.musicartist  }} - {{ session.musicname }} " </h4> </center>
+     </div>
+    <br>
+
+
+    <table class="table table-sm table-dark w-50 rounded">
+  <thead>
+    <tr class="">
+      <th scope="col">ID</th>
+      <th scope="col">List Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in session.userlists %}
+        <tr>
+
+        <th scope="row"> {{ row[0] }}</th>
+         <td><a class="btn btn-warning btn-sm w-50"href="/addmusictothelist/{{ row[0] }}"> <b> {{ row[1] }} </b>  </a></td>
+        </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+{%  endblock %}
