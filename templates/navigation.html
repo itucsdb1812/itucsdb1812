@@ -11,19 +11,23 @@
   </ul>
         <div id="navbar">
           <ul class="navbar-nav navbar-right">
-        
+            {% if session.logged_in %}
+                 {% if session.username == 'alican' or session.username == 'enes' %}
+                     ||||
+                    <li class="nav-item"><a href="/admin"><b>Admin Page</b></a></li>
+                {% endif %}
                 ||||
                 <li class="nav-item"><a href="/profile"><b>My Profile</b></a></li>
                 ||||
               <li class="nav-item"><a href="/logout"><b>Logout</b></a></li>
                 ||||
-       
+            {% else %}
                 ||||
               <li class="nav-item"><a href="/register"><b>Register</b></a></li>
                 ||||
               <li class="nav-item"><a href="/login"><b>Login</b></a></li>
                 ||||
-     
+            {% endif %}
 
           </ul>
         </div>
