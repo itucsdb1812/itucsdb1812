@@ -170,6 +170,61 @@ def mylist(id):
 
 # MYLIST FINAL
 
+# ADD MUSIC BY ADMIN
+
+class MusicForm(Form):
+    musicname = StringField('', [validators.Length(min=2, max=50)])
+    artist = StringField('', [validators.Length(min=2, max=50)])
+    musictype = StringField('', [validators.Length(min=2, max=50)])
+    date = StringField('', [validators.Length(min=4, max=10)])
+    albumname = StringField('', [validators.Length(min=2, max=50)])
+    language = StringField('', [validators.Length(min=2, max=50)])
+    country = StringField('', [validators.Length(min=2, max=50)])
+
+@app.route("/addmusic",methods=["POST","GET"])
+def addmusic():
+    if session['username'] == 'alican' or session['username'] == 'enes':
+        form2 = MusicForm(request.form)
+
+        if request.method == 'POST' and form2.validate():
+            musicname = form2.musicname.data
+            artist = form2.artist.data
+            musictype = form2.musictype.data
+            date = form2.date.data
+            albumname = form2.albumname.data
+            language = form2.language.data
+            country = form2.country.data
+
+            connection = dbapi2.connect(url)
+            cursor = connection.cursor()
+            cursor.execute(
+                """INSERT INTO music(musicname,artist,musictype,releasedate,albumname,musiclanguage,musiccountry) VALUES(%s, %s, %s, %s, %s, %s, %s)""",
+                (musicname, artist, musictype, date, albumname, language, country))
+
+            connection.commit()
+            cursor.close()
+            session['ADDED'] = True
+            return redirect(url_for('addmusic'))
+
+        return render_template("addmusic.html", form=form2)
+    else:
+        return render_template("index.html")
+# ADD MUSIC BY ADMIN FINAL
+
+# DELETE MUSIC BY ADMIN
+@app.route("/deletemusic/<string:musicid>",methods=["POST","GET"])
+def deletemusic(musicid):
+    if session['username'] == 'alican' or session['username'] == 'enes':
+        connection = dbapi2.connect(url)
+        cursor = connection.cursor()
+        cursor.execute("""DELETE FROM music WHERE music_id = %s""", [musicid])
+        connection.commit()
+        cursor.close()
+        return redirect(url_for("musics"))
+    else:
+        return render_template("index.html")
+# DELETE MUSIC BY ADMIN FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
