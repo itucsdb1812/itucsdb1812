@@ -1,0 +1,26 @@
+{% extends "theme.html" %}
+
+
+{% block body %}
+
+<br>
+        <div class="bg-warning text-dark w-25 rounded">
+           <center> <h1><b>LOGIN</b></h1> </center>
+     </div>
+
+<br>
+
+
+  <form action="" method="POST">
+    <div class="form-group w-50">
+     <label class="bg-dark w-25 rounded text-white "><center> <b>Username</b></center></label>
+      <input type="text" name="username" class="form-control" value={{request.form.username}}>
+    </div>
+    <div class="form-group w-50">
+      <label class="bg-dark w-25 rounded text-white"><center><b>Password</b></center></label>
+      <input type="password" name="password" class="form-control" value={{request.form.password}}>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+{% endblock %}
