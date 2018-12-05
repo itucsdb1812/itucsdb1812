@@ -130,6 +130,15 @@ def logout():
     return redirect(url_for("index"))
 # LOGOUT FINAL
 
+# ADMIN PAGE
+@app.route("/admin",methods=["POST","GET"])
+def admin():
+    if session['username'] == 'alican' or session['username'] == 'enes':
+        return render_template("admin.html")
+    return render_template("index.html")
+
+# ADMIN PAGE FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
