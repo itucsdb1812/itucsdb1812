@@ -91,6 +91,38 @@ def login():
 
 # LOGIN FINAL
 
+# PROFILE
+
+class userplaylist(Form):
+    listname = StringField('Listname', [validators.Length(min=4, max=50)])
+
+@app.route("/profile", methods=["POST","GET"])
+def profile():
+    userid = session['userid']
+    connection = dbapi2.connect(url)
+    cursor = connection.cursor()
+    cursor.execute("""SELECT * FROM userplaylist WHERE userid = %s""", [userid])
+    userlists = cursor.fetchall()
+    session['userlists'] = userlists
+
+    form = userplaylist(request.form)
+    if request.method == 'POST' and form.validate():
+        listname = form.listname.data
+        connection = dbapi2.connect(url)
+        cursor = connection.cursor()
+
+        print(userid)
+        cursor.execute("""INSERT INTO userplaylist(playlistname,userid) VALUES(%s, %s)""", (listname, userid))
+        connection.commit()
+        cursor.close()
+        return redirect(url_for("profile"))
+
+
+    return render_template("profile.html", form=form)
+
+
+# PROFILE FINAL
+
 
 if __name__ == "__main__":
     app.debug = True
