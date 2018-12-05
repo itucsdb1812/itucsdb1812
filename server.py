@@ -47,7 +47,7 @@ def register():
 
         connection = dbapi2.connect(url)
         cursor = connection.cursor()
-        cursor.execute("INSERT INTO users(email,username,password) VALUES(%s, %s, %s)",(email,username,password))
+        cursor.execute("""INSERT INTO users(email,username,password) VALUES(%s, %s, %s)""",(email,username,password))
 
         connection.commit()
         cursor.close()
