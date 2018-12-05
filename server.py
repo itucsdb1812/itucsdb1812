@@ -123,6 +123,12 @@ def profile():
 
 # PROFILE FINAL
 
+# LOGOUT 
+@app.route("/logout",methods=["POST","GET"])
+def logout():
+    session.clear()
+    return redirect(url_for("index"))
+# LOGOUT FINAL
 
 if __name__ == "__main__":
     app.debug = True
