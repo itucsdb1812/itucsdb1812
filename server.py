@@ -265,7 +265,7 @@ def removemusicfromlist(musicidd):
 def deletelist(listid):
     connection = dbapi2.connect(url)
     cursor = connection.cursor()
-    cursor.execute("DELETE FROM userplaylist WHERE playlist_id = %s", [listid])
+    cursor.execute("""DELETE FROM userplaylist WHERE playlist_id = %s""", [listid])
     connection.commit()
     cursor.close()
     return redirect(url_for("profile"))
