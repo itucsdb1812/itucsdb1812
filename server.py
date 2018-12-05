@@ -234,6 +234,20 @@ def choosenlist(musicid,musicname,musicartist):
     return render_template("choosenlist.html")
 # CHOOSEN LIST FINAL
 
+# ADD MUSIC TO THE LIST
+@app.route("/addmusictothelist/<string:listid>",methods=["POST","GET"])
+def addmusictothelist(listid):
+    print(session['musicid'])
+    print(listid)
+    musicid = session['musicid']
+    connection = dbapi2.connect(url)
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)", (listid,musicid))
+    connection.commit()
+    cursor.close()
+    return mylist(listid)
+# ADD MUSIC TO THE LIST FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
