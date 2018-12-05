@@ -25,6 +25,41 @@ def musics():
     cursor.close()
     return render_template("musics.html")
 
+# REGISTER -------------
+
+class RegisterForm(Form):
+    username = StringField('', [validators.Length(min=4, max=25)])
+    email = StringField('', [validators.Length(min=4, max=50)])
+    password = PasswordField('', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Passwords dont match')
+    ])
+    confirm = PasswordField('')
+
+@app.route("/register",methods=["POST","GET"])
+def register():
+    form = RegisterForm(request.form)
+    if request.method == 'POST' and form.validate():
+        email=form.email.data
+        username = form.username.data
+        password = form.password.data
+        #aynı username var mı yok mu denenecek şimdilik 2 aynı username açabiliyor.
+
+        connection = dbapi2.connect(url)
+        cursor = connection.cursor()
+        cursor.execute("INSERT INTO users(email,username,password) VALUES(%s, %s, %s)",(email,username,password))
+
+        connection.commit()
+        cursor.close()
+        return redirect(url_for("login"))
+
+    return render_template("register.html", form=form)
+
+
+# REGISTER FINAL ----------
+
+
+
 
 if __name__ == "__main__":
     app.debug = True
