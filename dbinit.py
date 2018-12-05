@@ -8,8 +8,8 @@ INIT_STATEMENTS = [
             
      """CREATE TABLE IF NOT EXISTS USERS (
         ID         SERIAL PRIMARY KEY,
-        EMAIL          VARCHAR(100),
-        USERNAME       VARCHAR(100),
+        EMAIL          VARCHAR(100) UNIQUE,
+        USERNAME       VARCHAR(100) UNIQUE,
         PASSWORD       VARCHAR(100)       
     )""",
 
@@ -19,7 +19,8 @@ INIT_STATEMENTS = [
         PLAYLISTNAME   VARCHAR(50),
         USERID         INTEGER REFERENCES USERS (ID)
                        ON UPDATE CASCADE
-                       ON DELETE CASCADE
+                       ON DELETE CASCADE,
+        UNIQUE(PLAYLISTNAME, USERID)
     )  """,
 
     """         
@@ -31,7 +32,8 @@ INIT_STATEMENTS = [
         RELEASEDATE      VARCHAR(50),
         ALBUMNAME        VARCHAR(50),
         MUSICLANGUAGE    VARCHAR(50),
-        MUSICCOUNTRY     VARCHAR(50)
+        MUSICCOUNTRY     VARCHAR(50),
+        UNIQUE (MUSICNAME, ARTIST, ALBUMNAME)
     )  """,
 
         """         
@@ -42,7 +44,8 @@ INIT_STATEMENTS = [
                          ON DELETE CASCADE,
         MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)
                          ON UPDATE CASCADE
-                         ON DELETE CASCADE
+                         ON DELETE CASCADE,
+        UNIQUE(USERPLAYLISTID, MUSICID)                  
     )  """,     
 ]
 
