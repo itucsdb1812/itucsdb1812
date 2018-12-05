@@ -42,9 +42,11 @@
                              <td>{{ music[5] }}</td>
                              <td>{{ music[6] }}</td>
                              <td>{{ music[7] }}</td>
-                         <td>   <a href=""  class="btn btn-success font-weight-bold"> Play </a> </td>
- <td> <a class="btn btn-warning font-weight-bold w-100" href=""> Add </a> </td>
-               
+                             <td>   <a href=""  class="btn btn-success font-weight-bold"> Play </a> </td>
+                             <td> <a class="btn btn-warning font-weight-bold w-100" href="/choosenlist/{{ music[0] }}/{{ music[1] }}/{{ music[2] }}"> Add </a> </td>
+                        {% if session.username == 'alican' or session.username == 'enes' %}
+                          <td>   <a href="/deletemusic/{{ music[0] }}"  class="btn btn-danger font-weight-bold"> Delete </a> </td>
+                        {% endif %}
 
                         </tr>
 
@@ -56,5 +58,6 @@
 
 
 {% endblock %}
+
 
 
