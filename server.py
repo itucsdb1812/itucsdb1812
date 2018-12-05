@@ -58,7 +58,38 @@ def register():
 
 # REGISTER FINAL ----------
 
+# LOGIN
+@app.route("/login",methods=["POST","GET"])
+def login():
+    if request.method == "POST":
+        username = request.form['username']
+        password_form = request.form['password']
 
+        connection = dbapi2.connect(url)
+        cursor = connection.cursor()
+        exist = cursor.execute("SELECT * FROM users WHERE username = %s", [username])
+        row_count = 0
+        for row in cursor:
+            row_count += 1
+        exist = cursor.execute("SELECT * FROM users WHERE username = %s", [username])
+        if row_count > 0:
+            user = cursor.fetchone()
+            password = user[3]
+            userid = user[0]
+            if password == password_form:
+                session['logged_in'] = True
+                session['username'] = username
+                session['userid'] = userid
+                return redirect(url_for("profile"))
+            else:
+                return render_template("login.html")
+            cursor.close()
+        else:
+            return render_template("login.html")
+
+    return render_template("login.html")
+
+# LOGIN FINAL
 
 
 if __name__ == "__main__":
