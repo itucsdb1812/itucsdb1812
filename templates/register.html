@@ -1,0 +1,30 @@
+{% extends 'theme.html' %}
+
+{% block body %}
+  <br>
+         <div class="bg-warning text-dark w-25 rounded">
+           <center> <h1><b>REGISTER</b></h1> </center>
+     </div>
+<br>
+
+  {% from "errormacro.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>E-mail</b></center></label>
+      {{render_field(form.email, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Username</b></center></label>
+      {{render_field(form.username, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Password</b></center></label>
+      {{render_field(form.password, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Confirm Password</b></center></label>
+      {{render_field(form.confirm, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Register"></p>
+  </form>
+{% endblock %}
