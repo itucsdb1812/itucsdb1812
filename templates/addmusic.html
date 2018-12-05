@@ -1,0 +1,52 @@
+{% extends "theme.html" %}
+
+
+{% block body %}
+
+  <br>
+       <div class="bg-warning text-dark w-25 rounded">
+           <center> <h1><b>Add Music</b></h1> </center>
+     </div>
+
+<br>
+
+{% if session.ADDED %}
+       <div class="bg-success text-dark w-25 rounded">
+      <center> <h4> Music Added to List </h4> </center>
+     </div>
+<br>
+    {% endif %}
+  {% from "errormacro.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Music Name</b></center></label>
+      {{render_field(form.musicname, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Artist</b></center></label>
+      {{render_field(form.artist, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Type</b></center></label>
+      {{render_field(form.musictype, class_="form-control")}}
+    </div>
+    <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Release Date</b></center></label>
+      {{render_field(form.date, class_="form-control")}}
+    </div>
+       <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Album Name</b></center></label>
+      {{render_field(form.albumname, class_="form-control")}}
+    </div>
+       <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Language</b></center></label>
+      {{render_field(form.language, class_="form-control")}}
+    </div>
+       <div class="form-group w-50">
+        <label class="bg-dark w-25 rounded text-white "><center> <b>Country</b></center></label>
+      {{render_field(form.country, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Add Music"></p>
+  </form>
+
+{% endblock %}
