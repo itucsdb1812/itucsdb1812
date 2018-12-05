@@ -67,11 +67,11 @@ def login():
 
         connection = dbapi2.connect(url)
         cursor = connection.cursor()
-        exist = cursor.execute("SELECT * FROM users WHERE username = %s", [username])
+        exist = cursor.execute("""SELECT * FROM users WHERE username = %s""", [username])
         row_count = 0
         for row in cursor:
             row_count += 1
-        exist = cursor.execute("SELECT * FROM users WHERE username = %s", [username])
+        exist = cursor.execute("""SELECT * FROM users WHERE username = %s""", [username])
         if row_count > 0:
             user = cursor.fetchone()
             password = user[3]
