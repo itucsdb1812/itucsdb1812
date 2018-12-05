@@ -139,6 +139,37 @@ def admin():
 
 # ADMIN PAGE FINAL
 
+# MYLIST
+@app.route("/mylist/<string:id>",methods=["POST","GET"])
+def mylist(id):
+    print(id)
+    session['listid'] = id
+    connection = dbapi2.connect(url)
+    cursor = connection.cursor()
+    cursor.execute("""SELECT * FROM playlistmusic WHERE userplaylistid = %s""", [id])
+    musiclist = cursor.fetchall()
+
+    music = []
+    for row in musiclist:
+        musicid = row[2]  # musicID
+        cursor2 = connection.cursor()
+        cursor2.execute("""SELECT * FROM music WHERE music_id = %s""", [musicid])
+        music.append(cursor2.fetchone())
+        cursor2.close()
+
+    cursor3 = connection.cursor()
+    cursor3.execute("""SELECT * FROM userplaylist WHERE playlist_id = %s""",[id])
+    listname = cursor3.fetchone()
+    session['listname'] = listname[1]
+    session['musiclist'] = music
+    cursor.close()
+
+    cursor3.close()
+
+    return render_template("mylist.html")
+
+# MYLIST FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
