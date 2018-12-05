@@ -63,7 +63,7 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
             """INSERT INTO music(MUSICNAME, ARTIST, MUSICTYPE, RELEASEDATE, ALBUMNAME, MUSICLANGUAGE, MUSICCOUNTRY) VALUES (%s, %s, %s, %s, %s, %s, %s)""",
             (musicname, artist, musictype, releasedate, albumname, musiclanguage,
              musiccountry))
-cursor.close()
+        cursor.close()
 
 
 if __name__ == "__main__":
