@@ -6,7 +6,7 @@ import psycopg2 as dbapi2
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
-kekoenes = """user='aqclrrxqvuskdd' password='c6b8d1b121bfae6deb78546f2e0423cb2628f56c5cafee6c3fbfc00959622f10'
+url = """user='aqclrrxqvuskdd' password='c6b8d1b121bfae6deb78546f2e0423cb2628f56c5cafee6c3fbfc00959622f10'
          host='ec2-54-246-117-62.eu-west-1.compute.amazonaws.com' port=5432 dbname='d80l7qfpjcdsh0'"""
 
 # INDEX
@@ -17,7 +17,7 @@ def index():
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    connection = dbapi2.connect(kekoenes)
+    connection = dbapi2.connect(url)
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM music")
     getmusics = cursor.fetchall()
