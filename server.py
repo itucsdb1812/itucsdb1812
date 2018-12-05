@@ -225,6 +225,15 @@ def deletemusic(musicid):
         return render_template("index.html")
 # DELETE MUSIC BY ADMIN FINAL
 
+# CHOOSEN LIST 
+@app.route("/choosenlist/<string:musicid>/<string:musicname>/<string:musicartist>",methods=["POST","GET"])
+def choosenlist(musicid,musicname,musicartist):
+    session['musicid'] = musicid
+    session['musicname'] = musicname
+    session['musicartist'] = musicartist
+    return render_template("choosenlist.html")
+# CHOOSEN LIST FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
