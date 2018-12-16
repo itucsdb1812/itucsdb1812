@@ -49,6 +49,14 @@ INIT_STATEMENTS = [
     )  """,     
 ]
 
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+if DATABASE_URL is not None:
+    config = DATABASE_URL
+else:
+    config = """dbname='postgres' user='postgres' password='1'"""
+
 def initialize(url):
     with dbapi2.connect(url) as connection:
         cursor = connection.cursor()
@@ -67,7 +75,7 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
 
 
 if __name__ == "__main__":
-    url = os.getenv("DATABASE_URL")
+    url = config
     if url is None:
         print("Usage: DATABASE_URL=url python dbinit.py", file=sys.stderr)
         sys.exit(1)

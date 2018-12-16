@@ -1,13 +1,17 @@
 from flask import Flask, render_template, url_for, redirect, request, session
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 import psycopg2 as dbapi2
-
+import os
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
-url = """user='aqclrrxqvuskdd' password='c6b8d1b121bfae6deb78546f2e0423cb2628f56c5cafee6c3fbfc00959622f10'
-         host='ec2-54-246-117-62.eu-west-1.compute.amazonaws.com' port=5432 dbname='d80l7qfpjcdsh0'"""
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+if DATABASE_URL is not None:
+    config = DATABASE_URL
+else:
+    config = """dbname='postgres' user='postgres' password='1'"""
 
 # INDEX
 @app.route("/")
@@ -17,7 +21,7 @@ def index():
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""SELECT * FROM music""")
     getmusics = cursor.fetchall()
@@ -45,7 +49,7 @@ def register():
         password = form.password.data
         #aynı username var mı yok mu denenecek şimdilik 2 aynı username açabiliyor.
 
-        connection = dbapi2.connect(url)
+        connection = dbapi2.connect(config)
         cursor = connection.cursor()
         cursor.execute("""INSERT INTO users(email,username,password) VALUES(%s, %s, %s)""",(email,username,password))
 
@@ -65,7 +69,7 @@ def login():
         username = request.form['username']
         password_form = request.form['password']
 
-        connection = dbapi2.connect(url)
+        connection = dbapi2.connect(config)
         cursor = connection.cursor()
         exist = cursor.execute("""SELECT * FROM users WHERE username = %s""", [username])
         row_count = 0
@@ -99,7 +103,7 @@ class userplaylist(Form):
 @app.route("/profile", methods=["POST","GET"])
 def profile():
     userid = session['userid']
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""SELECT * FROM userplaylist WHERE userid = %s""", [userid])
     userlists = cursor.fetchall()
@@ -108,7 +112,7 @@ def profile():
     form = userplaylist(request.form)
     if request.method == 'POST' and form.validate():
         listname = form.listname.data
-        connection = dbapi2.connect(url)
+        connection = dbapi2.connect(config)
         cursor = connection.cursor()
 
         print(userid)
@@ -144,7 +148,7 @@ def admin():
 def mylist(id):
     print(id)
     session['listid'] = id
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""SELECT * FROM playlistmusic WHERE userplaylistid = %s""", [id])
     musiclist = cursor.fetchall()
@@ -195,7 +199,7 @@ def addmusic():
             language = form2.language.data
             country = form2.country.data
 
-            connection = dbapi2.connect(url)
+            connection = dbapi2.connect(config)
             cursor = connection.cursor()
             cursor.execute(
                 """INSERT INTO music(musicname,artist,musictype,releasedate,albumname,musiclanguage,musiccountry) VALUES(%s, %s, %s, %s, %s, %s, %s)""",
@@ -215,7 +219,7 @@ def addmusic():
 @app.route("/deletemusic/<string:musicid>",methods=["POST","GET"])
 def deletemusic(musicid):
     if session['username'] == 'alican' or session['username'] == 'enes':
-        connection = dbapi2.connect(url)
+        connection = dbapi2.connect(config)
         cursor = connection.cursor()
         cursor.execute("""DELETE FROM music WHERE music_id = %s""", [musicid])
         connection.commit()
@@ -240,7 +244,7 @@ def addmusictothelist(listid):
     print(session['musicid'])
     print(listid)
     musicid = session['musicid']
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)""", (listid,musicid))
     connection.commit()
@@ -252,7 +256,7 @@ def addmusictothelist(listid):
 @app.route("/removemusicfromlist/<string:musicidd>",methods=["POST","GET"])
 def removemusicfromlist(musicidd):
     listid = session['listid']
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""DELETE FROM playlistmusic WHERE userplaylistid = %s AND musicid = %s """, (listid,musicidd))
     connection.commit()
@@ -263,7 +267,7 @@ def removemusicfromlist(musicidd):
 # DELETE LIST
 @app.route("/deletelist/<string:listid>",methods=["POST","GET"])
 def deletelist(listid):
-    connection = dbapi2.connect(url)
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""DELETE FROM userplaylist WHERE playlist_id = %s""", [listid])
     connection.commit()
