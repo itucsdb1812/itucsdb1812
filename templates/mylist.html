@@ -3,10 +3,9 @@
 
 {% block body %}
     <br>
-           <div class="bg-warning text-dark w-25 rounded">
+           <div class="bg-warning text-dark w-50 rounded">
            <center> <h1><b>{{ session.listname }}</b></h1> </center>
      </div>
-
     <br>
 
 
@@ -23,6 +22,16 @@
         <th scope="col">Country</th>
     </tr>
   </thead>
+ <div class="">
+     {% if session.playmusic %}
+         {% for x in session.musiclist %}
+             {% if session.playmusicid == x[0]|string %}
+                 <a class="btn btn-light darkgray text-info" href="/nextmusic"> <b>NEXT --></b> </a>
+             {% endif %}
+         {% endfor %}
+     {% endif %}
+ </div>
+<br>
   <tbody>
 
         {% for row in session.musiclist %}
@@ -37,11 +46,10 @@
                                  <td>{{ row[6] }}</td>
                                  <td>{{ row[7] }}</td>
 
-                             <td>  <a href=""  class="badge badge-success font-weight-bold"> Play </a> </td>
+                             <td>  <a href="/playmusicfrommylist/{{ row[0] }}/{{ row[1] }}/{{ row[2] }}"  class="badge badge-success font-weight-bold"> Play </a> </td>
                              <td>   <a href="/removemusicfromlist/{{ row[0] }}" class="badge badge-warning font-weight-bold"> Remove </a></td>
                             </tr>
-
-
+            
         {% endfor %}
 
    </tbody>
