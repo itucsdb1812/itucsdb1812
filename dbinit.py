@@ -2,6 +2,13 @@ import os
 import sys
 import psycopg2 as dbapi2
 
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+if DATABASE_URL is not None:
+    config = DATABASE_URL
+else:
+    config = """dbname='postgres' user='postgres' password='1'"""
+
 INIT_STATEMENTS = [
 
     """CREATE TABLE IF NOT EXISTS USERS (
