@@ -10,22 +10,77 @@
     body{
        background-color: gray ;
     }
+    div.search{
+        height: 50px;
+        text-align: center;
+    }
+      div.divo2 {
+        float: left;
+        width: 18%;
+        height: 1000px;
+        padding-bottom: 10px;
+        background: darkslategray;
+    }
+    div.divo1 {
+        float: left;
+        width: 18%;
+        height: 100vh;
+        padding-bottom: 10px;
+        position: fixed;
+        background: darkslategray;
+    }
+    a.darkgray{
+        background-color: darkslategray;
+    }
+      div.divo3 {
+          float: left;
+          width: 82%;
+          height: 520px;
+            padding-left: 30px;
+          padding-right: 20px;
+          padding-bottom: 50px;
+          background-color: gray;
+    }
+    section:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Style the footer */
+    footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+      background-color: #000909 ;
+      padding: 1px;
+
+      text-align: center;
+      color: white;
+    }
 </style>
 
 </head>
 <body>
 
-    {% include 'navigation.html' %}
+{% include 'navigation.html' %}
+<section>
+<div class="divo1">
+{% include 'leftdiv.html' %}
+</div>
+<div class="divo2"> </div>
 
-
-
-  <div class="container">
-
+  <div class="divo3">
+        {% include 'message.html' %}
       {% block body %}{% endblock %}
   </div>
 
+</section>
 
-
+<footer>
+  <p>Songs on The Napkin | © 2018 -     Alican Kurt & Enes Boynukalın</p>
+</footer>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
