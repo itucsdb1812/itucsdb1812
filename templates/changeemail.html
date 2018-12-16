@@ -1,0 +1,37 @@
+{% extends "theme.html" %}
+
+
+{% block body %}
+    {% if session.logged_in %}
+<br>
+        <div class="bg-warning text-dark w-50 rounded">
+           <center> <h1><b>Change E-mail</b></h1> </center>
+     </div>
+
+<br>
+
+  <form action="" method="POST">
+    <div class="form-group w-50">
+     <label class="bg-dark w-50 rounded text-white "><center> <b>New E-mail</b></center></label>
+      <input type="text" name="newemailfirst" class="form-control" value={{request.form.newemailfirst}}>
+    </div>
+    <div class="form-group w-50">
+      <label class="bg-dark w-50 rounded text-white"><center><b>Confirm New E-mail</b></center></label>
+      <input type="text" name="newemailsecond" class="form-control" value={{request.form.newemailsecond}}>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><b>Change</b></button>
+  </form>
+
+{% else %}
+         <div class="bg-danger text-dark w-50 rounded">
+           <center> <a class="btn btn-danger text-dark"><b>You must be Login.</b></a> </center>
+     </div>
+<br>
+               <div class="bg-Light text-dark w-50 rounded">
+           <center> <a class="btn btn-light text-dark" href="/login"><b>Login Page</b></a> </center>
+     </div>
+
+{% endif %}
+
+{% endblock %}
