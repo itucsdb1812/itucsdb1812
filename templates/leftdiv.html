@@ -1,0 +1,12 @@
+<center>
+   <br>
+   <label class="bg-primary w-75 rounded text-white "><center> <b>Favorite Lists</b></center></label>
+    <br><br>
+  {% for row in session.userlists %}
+      {% if row[3] == '1' %}
+        <p>
+         <td><a class="btn btn-light btn-sm w-75" href="/mylist/{{ row[0] }}"> <b> {{ row[1] }} </b>  </a></td>
+        </p>
+      {% endif %}
+   {% endfor %}
+</center>
