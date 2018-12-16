@@ -46,7 +46,7 @@ def musics():
             session['getmusics'] = getmusics
             cursor.close()
         else:
-            cursor.execute("""SELECT * FROM music WHERE """ + selecting + """ LIKE '""" + searchtext + """%'""")
+            cursor.execute("""SELECT * FROM music WHERE """ + selecting + """ iLIKE '""" + searchtext + """%'""")
             getmusics = cursor.fetchall()
             session['getmusics'] = getmusics
             cursor.close()
