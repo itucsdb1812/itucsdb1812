@@ -396,6 +396,86 @@ def stopmusic():
     return redirect(request.referrer)
 # STOP MUSIC FINAL
 
+# SETTINGS PAGE
+@app.route("/settings",methods=["POST","GET"])
+def settings():
+    return render_template("settings.html")
+# SETTINGS PAGE FINAL
+
+# CHANGE PASSWORD
+@app.route("/changepassword",methods=["POST","GET"])
+def changepassword():
+    if request.method == "POST":
+        oldpassword = request.form['oldpassword']
+        newpasswordfirst = request.form['newpasswordfirst']
+        newpasswordsecond = request.form['newpasswordsecond']
+
+        connection = dbapi2.connect(config)
+        cursor = connection.cursor()
+        cursor.execute("""SELECT * FROM users WHERE username = %s""", [session['username']])
+        user = cursor.fetchone()
+        if oldpassword != user[3]:
+            flash('Old password does not match!', 'danger')
+            cursor.close()
+            redirect(url_for("changepassword"))
+        elif newpasswordfirst != newpasswordsecond:
+            flash('New passwords does not match!','danger')
+            cursor.close()
+            redirect(url_for("changepassword"))
+        else:
+            cursor.execute("""UPDATE users SET password = '""" + newpasswordfirst + """' WHERE username = '""" + session['username'] + """'""" )
+            connection.commit()
+            cursor.close()
+            flash('Changed Password.', 'success')
+            return redirect(url_for("settings"))
+    return render_template("changepassword.html")
+# CHANGE PASSWORD FINAL
+
+# CHANGE E-MAIL
+@app.route("/changeemail",methods=["POST","GET"])
+def changeemail():
+    if request.method == "POST":
+        newemailfirst = request.form['newemailfirst']
+        newemailsecond = request.form['newemailsecond']
+
+
+        if newemailfirst != newemailsecond:
+            flash('New E-mail does not match!','danger')
+            redirect(url_for("changeemail"))
+        else:
+            connection = dbapi2.connect(config)
+            cursor = connection.cursor()
+            cursor.execute("""UPDATE users SET email = '""" + newemailfirst + """' WHERE username = '""" + session['username'] + """'""" )
+            connection.commit()
+            cursor.close()
+            flash('Changed E-mail.', 'success')
+            return redirect(url_for("settings"))
+    return render_template("changeemail.html")
+# CHANGE E-MAIL FINAL
+
+
+# IS_FAVORITE
+
+@app.route("/is_favorite/<string:listid>",methods=["POST","GET"])
+def is_favorite(listid):
+    connection = dbapi2.connect(config)
+    cursor = connection.cursor()
+    cursor.execute("""UPDATE userplaylist SET is_favorite = '1' WHERE playlist_id = '""" + listid + """'""")
+    connection.commit()
+    cursor.close()
+    return redirect(url_for('profile'))
+
+@app.route("/isnot_favorite/<string:listid>",methods=["POST","GET"])
+def isnot_favorite(listid):
+    connection = dbapi2.connect(config)
+    cursor = connection.cursor()
+    cursor.execute("""UPDATE userplaylist SET is_favorite = '0' WHERE playlist_id = '""" + listid + """'""")
+    connection.commit()
+    cursor.close()
+    return redirect(url_for('profile'))
+
+# IS_FAVORITE FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
