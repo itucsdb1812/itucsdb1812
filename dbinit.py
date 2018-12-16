@@ -69,7 +69,7 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
 
 
 if __name__ == "__main__":
-    initialize(dbname='napkin', user='postgres', password='1')
+    initialize(config)
 
     addMusic("Annem", "Zeki Müren", "Türk Sanat Müziği", "1975", "Anne Sevgisi", "Türkçe", "Türkiye")
     addMusic("Smooth Criminal", "Michael Jackson", "Pop", "2012", "Bad 25th Anniversary", "English", "U.S.A.")
