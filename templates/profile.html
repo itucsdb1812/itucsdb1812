@@ -3,37 +3,43 @@
 
 {% block body %}
 <br>
+    <div>
            <div class="bg-warning text-dark w-50 rounded">
-           <center> <h1><b>Welcome {{session.username}}</b></h1> </center>
+           <center> <h1><b> My Lists </b></h1> </center>
+
      </div>
-
-
-    <br>
-
+ <br>
 
     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#createlist"><b>CREATE A NEW LIST</b></button>
 <br><br>
 
-    <table class="table table-sm table-dark w-50 rounded">
+    <table class="table table-sm table-dark w-75 rounded">
   <thead>
     <tr class="">
       <th scope="col">ID</th>
       <th scope="col">List Name</th>
+
+      <th scope="col">Is Favourite</th>
       <th scope="col">Delete</th>
+
     </tr>
   </thead>
   <tbody>
     {% for row in session.userlists %}
         <tr>
-
         <th scope="row"> {{ row[0] }}</th>
-         <td><a class="btn btn-warning btn-sm w-50" href="/mylist/{{ row[0] }}"> <b> {{ row[1] }} </b>  </a></td>
+         <td><a class="btn btn-light btn-sm w-75" href="/mylist/{{ row[0] }}"> <b> {{ row[1] }} </b>  </a></td>
+            {% if row[3] == '0' %}
+             <td><a class="badge badge-info w-50" href="/is_favorite/{{ row[0] }}">  <b> Favourite ? </b> </a></td>
+            {% else %}
+            <td><a class="badge badge-success w-50" href="/isnot_favorite/{{ row[0] }}">  <b> Favourite </b> </a></td>
+            {% endif %}
             <td><a class="badge badge-danger w-50" href="/deletelist/{{ row[0] }}">  <b> Delete List</b> </a></td>
         </tr>
    {% endfor %}
   </tbody>
 </table>
-
+    
 <div class="modal fade" id="createlist" tabindex="-1" role="dialog" aria-labelledby="createlistLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -49,10 +55,7 @@
     <div class="form-group">
       {{render_field(form.listname, class_="form-control")}}
     </div>
-
-
-
-      </div>
+     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="sumbit" class="btn btn-primary">Create</button>
@@ -60,6 +63,8 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 
 {% endblock %}
