@@ -22,9 +22,9 @@ def index():
 @app.route("/music",methods=["POST","GET"])
 def musics():
     search = SearchForm(request.form)
-    connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
+    connection = dbapi2.connect(config)
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM music")
+    cursor.execute("""SELECT * FROM music""")
     getmusics = cursor.fetchall()
     session['getmusics'] = getmusics
 
@@ -32,12 +32,12 @@ def musics():
         selecting = search.select.data
         searchtext = search.search.data
         if searchtext== '':
-            cursor.execute("SELECT * FROM music")
+            cursor.execute("""SELECT * FROM music""")
             getmusics = cursor.fetchall()
             session['getmusics'] = getmusics
             cursor.close()
         else:
-            cursor.execute("""SELECT * FROM music WHERE """ + selecing + """ LIKE '""" + searchtext + """%'""")
+            cursor.execute("""SELECT * FROM music WHERE """ + selecting + """ LIKE '""" + searchtext + """%'""")
             getmusics = cursor.fetchall()
             session['getmusics'] = getmusics
             cursor.close()
@@ -65,20 +65,20 @@ def register():
         password = form.password.data
         #aynı username var mı yok mu denenecek şimdilik 2 aynı username açabiliyor.
 
-        connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
+        connection = dbapi2.connect(config)
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM users WHERE username = %s ",[username])
+        cursor.execute("""SELECT * FROM users WHERE username = %s """,[username])
         if cursor.rowcount > 0:
             flash('Username already exist!','danger')
             return redirect(url_for("register"))
         else:
-            cursor.execute("SELECT * FROM users WHERE email = %s ", [email])
+            cursor.execute("""SELECT * FROM users WHERE email = %s """, [email])
             if cursor.rowcount > 0:
                 flash('E-mail already exist!', 'danger')
                 cursor.close()
                 return redirect(url_for("register"))
             else:
-                cursor.execute("INSERT INTO users(email,username,password) VALUES(%s, %s, %s)",
+                cursor.execute("""INSERT INTO users(email,username,password) VALUES(%s, %s, %s)""",
                                (email, username, password))
                 connection.commit()
                 cursor.close()
@@ -112,15 +112,17 @@ def login():
                 session['logged_in'] = True
                 session['username'] = username
                 session['userid'] = userid
+                #
                 return redirect(url_for("profile"))
             else:
+                flash('Username or Password is incorrect!','danger')
                 return render_template("login.html")
             cursor.close()
         else:
+            flash('Username or Password is incorrect!', 'danger')
             return render_template("login.html")
 
     return render_template("login.html")
-
 # LOGIN FINAL
 
 # PROFILE
