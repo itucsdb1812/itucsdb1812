@@ -225,7 +225,7 @@ class MusicForm(Form):
 
 @app.route("/addmusic",methods=["POST","GET"])
 def addmusic():
-    if session['username'] == 'alican' or session['username'] == 'enes':
+    if (session) and (session['username'] == 'alican' or session['username'] == 'enes'):
         form2 = MusicForm(request.form)
 
         if request.method == 'POST' and form2.validate():
@@ -239,17 +239,26 @@ def addmusic():
 
             connection = dbapi2.connect(config)
             cursor = connection.cursor()
-            cursor.execute(
-                """INSERT INTO music(musicname,artist,musictype,releasedate,albumname,musiclanguage,musiccountry) VALUES(%s, %s, %s, %s, %s, %s, %s)""",
-                (musicname, artist, musictype, date, albumname, language, country))
-
-            connection.commit()
-            cursor.close()
-            session['ADDED'] = True
-            return redirect(url_for('addmusic'))
+            cursor.execute("""SELECT * FROM music WHERE musicname = %s""", [musicname])
+            if cursor.rowcount > 0:
+                m = cursor.fetchall()
+                for row in m:
+                    if row[2].lower() == artist.lower():
+                        flash('The music is already in the list.','warning')
+                        cursor.close()
+                        return redirect(url_for('addmusic'))
+            else:
+                cursor.execute(
+                    """INSERT INTO music(musicname,artist,musictype,releasedate,albumname,musiclanguage,musiccountry) VALUES(%s, %s, %s, %s, %s, %s, %s)""",
+                    (musicname, artist, musictype, date, albumname, language, country))
+                connection.commit()
+                cursor.close()
+                flash('Music Added to List.', 'success')
+                return redirect(url_for('addmusic'))
 
         return render_template("addmusic.html", form=form2)
     else:
+        flash('You are not admin!', 'warning')
         return render_template("index.html")
 # ADD MUSIC BY ADMIN FINAL
 
@@ -262,6 +271,7 @@ def deletemusic(musicid):
         cursor.execute("""DELETE FROM music WHERE music_id = %s""", [musicid])
         connection.commit()
         cursor.close()
+        flash('Chosen music has been deleted.', 'success')
         return redirect(url_for("musics"))
     else:
         return render_template("index.html")
@@ -279,15 +289,22 @@ def choosenlist(musicid,musicname,musicartist):
 # ADD MUSIC TO THE LIST
 @app.route("/addmusictothelist/<string:listid>",methods=["POST","GET"])
 def addmusictothelist(listid):
-    print(session['musicid'])
-    print(listid)
     musicid = session['musicid']
     connection = dbapi2.connect(config)
     cursor = connection.cursor()
-    cursor.execute("""INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)""", (listid,musicid))
+    cursor.execute("""SELECT * FROM playlistmusic WHERE userplaylistid = %s""",[listid])
+    if cursor.rowcount > 0:
+        m = cursor.fetchall()
+        for row in m:
+            if row[2] == int(musicid):
+                flash('There is already music in the chosen list!','warning')
+                cursor.close()
+                return choosenlist(musicid,session['musicname'],session['musicartist'])
+    cursor.execute("""INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(%s, %s)""", (listid, musicid))
     connection.commit()
     cursor.close()
-    return mylist(listid)
+    flash('Chosen music is added to the list.', 'success')
+    return redirect(url_for("mylist",id=listid))
 # ADD MUSIC TO THE LIST FINAL
 
 # REMOVE MUSIC FROM LIST
@@ -299,6 +316,7 @@ def removemusicfromlist(musicidd):
     cursor.execute("""DELETE FROM playlistmusic WHERE userplaylistid = %s AND musicid = %s """, (listid,musicidd))
     connection.commit()
     cursor.close()
+    flash('Chosen music has been removed from the list.','success')
     return mylist(listid)
 # REMOVE MUSIC FROM LIST FINAL
 
@@ -310,6 +328,7 @@ def deletelist(listid):
     cursor.execute("""DELETE FROM userplaylist WHERE playlist_id = %s""", [listid])
     connection.commit()
     cursor.close()
+    flash('Chosen list has been removed.', 'success')
     return redirect(url_for("profile"))
 # DELETE LIST FINAL
 
