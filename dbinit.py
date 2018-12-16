@@ -72,7 +72,7 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
              musiccountry))
         cursor.close()
 
-if _name_ == "__main__":
+if __name__ == "__main__":
     url = config
     if url is None:
         print("Usage: DATABASE_URL=url python dbinit.py", file=sys.stderr)
