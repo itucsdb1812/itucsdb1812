@@ -144,7 +144,7 @@ def profile():
     userid = session['userid']
     connection = dbapi2.connect(config)
     cursor = connection.cursor()
-    cursor.execute("""SELECT * FROM userplaylist WHERE userid = %s""", [userid])
+    cursor.execute("""SELECT * FROM userplaylist WHERE userid = %s ORDER BY playlist_id""", [userid])
     userlists = cursor.fetchall()
     session['userlists'] = userlists
 
@@ -153,16 +153,15 @@ def profile():
         listname = form.listname.data
         connection = dbapi2.connect(config)
         cursor = connection.cursor()
-
-        print(userid)
-        cursor.execute("""INSERT INTO userplaylist(playlistname,userid) VALUES(%s, %s)""", (listname, userid))
-        connection.commit()
+        cursor.execute("""SELECT * FROM userplaylist WHERE playlistname = %s""",[listname])
+        if cursor.rowcount > 0:
+            flash('This list already exists!', 'warning')
+        else:
+            cursor.execute("""INSERT INTO userplaylist(playlistname,userid,is_favorite) VALUES(%s, %s, %s)""", (listname, userid, '0'))
+            connection.commit()
         cursor.close()
         return redirect(url_for("profile"))
-
-
     return render_template("profile.html", form=form)
-
 
 # PROFILE FINAL
 
