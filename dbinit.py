@@ -56,16 +56,15 @@ CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (
 ]
 
 
-def initialize(config):
-    with dbapi2.connect(config) as connection:
+def initialize(url):
+    with dbapi2.connect(url) as connection:
         cursor = connection.cursor()
         for statement in INIT_STATEMENTS:
             cursor.execute(statement)
         cursor.close()
 
-
 def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage, musiccountry):
-    with dbapi2.connect(config) as connection:
+    with dbapi2.connect(url) as connection:
         cursor = connection.cursor()
         cursor.execute(
             """INSERT INTO music(MUSICNAME, ARTIST, MUSICTYPE, RELEASEDATE, ALBUMNAME, MUSICLANGUAGE, MUSICCOUNTRY) VALUES (%s, %s, %s, %s, %s, %s, %s)""",
@@ -73,10 +72,12 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
              musiccountry))
         cursor.close()
 
-
-
-if __name__ == "__main__":
-    initialize(config)
+if _name_ == "__main__":
+    url = config
+    if url is None:
+        print("Usage: DATABASE_URL=url python dbinit.py", file=sys.stderr)
+        sys.exit(1)
+    initialize(url)
 
     addMusic("Annem", "Zeki Müren", "Türk Sanat Müziği", "1975", "Anne Sevgisi", "Türkçe", "Türkiye")
     addMusic("Smooth Criminal", "Michael Jackson", "Pop", "2012", "Bad 25th Anniversary", "English", "U.S.A.")
@@ -98,8 +99,5 @@ if __name__ == "__main__":
     addMusic("Night And Day", "Frank Sinatra", "Jazz", "1932", "A Swingin' Affair!", "English", "U.S.A.")
     addMusic("At Last", "Etta James", "Jazz", "1960", "The Essentian tta James", "English", "U.S.A.")
 
-
-
-
-
-
+    
+   
