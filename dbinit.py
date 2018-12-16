@@ -2,16 +2,14 @@ import os
 import sys
 import psycopg2 as dbapi2
 
-
-
 INIT_STATEMENTS = [
-            
-     """CREATE TABLE IF NOT EXISTS USERS (
-        ID         SERIAL PRIMARY KEY,
-        EMAIL          VARCHAR(100) UNIQUE,
-        USERNAME       VARCHAR(100) UNIQUE,
-        PASSWORD       VARCHAR(100)       
-    )""",
+
+    """CREATE TABLE IF NOT EXISTS USERS (
+       ID         SERIAL PRIMARY KEY,
+       EMAIL          VARCHAR(100) UNIQUE,
+       USERNAME       VARCHAR(100) UNIQUE,
+       PASSWORD       VARCHAR(100)       
+   )""",
 
     """
     CREATE TABLE IF NOT EXISTS USERPLAYLIST (
@@ -20,6 +18,7 @@ INIT_STATEMENTS = [
         USERID         INTEGER REFERENCES USERS (ID)
                        ON UPDATE CASCADE
                        ON DELETE CASCADE,
+        IS_FAVORITE    VARCHAR(1),
         UNIQUE(PLAYLISTNAME, USERID)
     )  """,
 
@@ -36,36 +35,30 @@ INIT_STATEMENTS = [
         UNIQUE (MUSICNAME, ARTIST, ALBUMNAME)
     )  """,
 
-        """         
-    CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (
-        ID               SERIAL PRIMARY KEY,
-        USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID)
-                         ON UPDATE CASCADE
-                         ON DELETE CASCADE,
-        MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)
-                         ON UPDATE CASCADE
-                         ON DELETE CASCADE,
-        UNIQUE(USERPLAYLISTID, MUSICID)                  
-    )  """,     
+    """         
+CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (
+    ID               SERIAL PRIMARY KEY,
+    USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID)
+                     ON UPDATE CASCADE
+                     ON DELETE CASCADE,
+    MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)
+                     ON UPDATE CASCADE
+                     ON DELETE CASCADE,
+    UNIQUE(USERPLAYLISTID, MUSICID)                  
+)  """,
 ]
 
 
-DATABASE_URL = os.getenv('DATABASE_URL')
-
-if DATABASE_URL is not None:
-    config = DATABASE_URL
-else:
-    config = """dbname='postgres' user='postgres' password='1'"""
-
-def initialize(url):
-    with dbapi2.connect(url) as connection:
+def initialize(config):
+    with dbapi2.connect(config) as connection:
         cursor = connection.cursor()
         for statement in INIT_STATEMENTS:
             cursor.execute(statement)
         cursor.close()
 
+
 def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage, musiccountry):
-    with dbapi2.connect(url) as connection:
+    with dbapi2.connect(config) as connection:
         cursor = connection.cursor()
         cursor.execute(
             """INSERT INTO music(MUSICNAME, ARTIST, MUSICTYPE, RELEASEDATE, ALBUMNAME, MUSICLANGUAGE, MUSICCOUNTRY) VALUES (%s, %s, %s, %s, %s, %s, %s)""",
@@ -74,30 +67,32 @@ def addMusic(musicname, artist, musictype, releasedate, albumname, musiclanguage
         cursor.close()
 
 
-if __name__ == "__main__":
-    url = config
-    if url is None:
-        print("Usage: DATABASE_URL=url python dbinit.py", file=sys.stderr)
-        sys.exit(1)
-    initialize(url)
 
-    addMusic("Annem","Zeki Müren","Türk Sanat Müziği","1975","Anne Sevgisi","Türkçe","Türkiye")
-    addMusic("Smooth Criminal","Michael Jackson","Pop","2012","Bad 25th Anniversary","English","U.S.A.")
-    addMusic("Rolling in the Deep","Adele","Rock","2011","21","English","U.K.")
-    addMusic("Maeva in Wonderland","Ibrahim Maalouf","Jazz","2011","Diagnostic","Instrumental","France")
-    addMusic("Iron","Woodkid","Alternative","2013","Iron","English","France")
-    addMusic("Beat It","Michael Jackson","Pop","2012","Bad 25th Anniversary","English","U.S.A.")
-    addMusic("Blue Skies","Frank Sinatra","Jazz","1941","The Essentian Frank Sinatra","English","U.S.A.")
-    addMusic("The Show Must Go On","Queen","Rock","2011","2011 Remastered","English","U.K.")
-    addMusic("Sway","Dean Martin","Jazz","1953","Brother Pour Thw Wine","English","U.S.A.")
-    addMusic("Happy","Pharrell Williams","Pop","2013","Despicable Me 2","English","U.S.A.")
-    addMusic("More","Bobby Darin","Jazz","1964","Bobby Darin Love Songs","English","U.S.A.")
-    addMusic("Coesur Volant","Zaz","Jazz","2011","Single","French","France")
-    addMusic("Power","Marcus Miller","Jazz","2001","M2","Instrumental","U.S.A.")
-    addMusic("Human","Rag'n'Bone Man","Soul","2017","Human (Deluxe)","English","U.S.A.")
-    addMusic("Hajret","Kusha Doğan","Blues","2005","Wered 2","Circassian","Turkey")
-    addMusic("Pump It","Black Eyed Peas","Pop","2005","Monkey Business","English","U.S.A.")
-    addMusic("The Thrill Is Gone","B.B. King","Jazz","1970","Deuces Wild","English","U.S.A.")
-    addMusic("Night And Day","Frank Sinatra","Jazz","1932","A Swingin' Affair!","English","U.S.A.")
-    addMusic("At Last","Etta James","Jazz","1960","The Essentian tta James","English","U.S.A.")
-    
+if __name__ == "__main__":
+    initialize(dbname='napkin', user='postgres', password='1')
+
+    addMusic("Annem", "Zeki Müren", "Türk Sanat Müziği", "1975", "Anne Sevgisi", "Türkçe", "Türkiye")
+    addMusic("Smooth Criminal", "Michael Jackson", "Pop", "2012", "Bad 25th Anniversary", "English", "U.S.A.")
+    addMusic("Rolling in the Deep", "Adele", "Rock", "2011", "21", "English", "U.K.")
+    addMusic("Maeva in Wonderland", "Ibrahim Maalouf", "Jazz", "2011", "Diagnostic", "Instrumental", "France")
+    addMusic("Iron", "Woodkid", "Alternative", "2013", "Iron", "English", "France")
+    addMusic("Beat It", "Michael Jackson", "Pop", "2012", "Bad 25th Anniversary", "English", "U.S.A.")
+    addMusic("Blue Skies", "Frank Sinatra", "Jazz", "1941", "The Essentian Frank Sinatra", "English", "U.S.A.")
+    addMusic("The Show Must Go On", "Queen", "Rock", "2011", "2011 Remastered", "English", "U.K.")
+    addMusic("Sway", "Dean Martin", "Jazz", "1953", "Brother Pour Thw Wine", "English", "U.S.A.")
+    addMusic("Happy", "Pharrell Williams", "Pop", "2013", "Despicable Me 2", "English", "U.S.A.")
+    addMusic("More", "Bobby Darin", "Jazz", "1964", "Bobby Darin Love Songs", "English", "U.S.A.")
+    addMusic("Coesur Volant", "Zaz", "Jazz", "2011", "Single", "French", "France")
+    addMusic("Power", "Marcus Miller", "Jazz", "2001", "M2", "Instrumental", "U.S.A.")
+    addMusic("Human", "Rag'n'Bone Man", "Soul", "2017", "Human (Deluxe)", "English", "U.S.A.")
+    addMusic("Hajret", "Kusha Doğan", "Blues", "2005", "Wered 2", "Circassian", "Turkey")
+    addMusic("Pump It", "Black Eyed Peas", "Pop", "2005", "Monkey Business", "English", "U.S.A.")
+    addMusic("The Thrill Is Gone", "B.B. King", "Jazz", "1970", "Deuces Wild", "English", "U.S.A.")
+    addMusic("Night And Day", "Frank Sinatra", "Jazz", "1932", "A Swingin' Affair!", "English", "U.S.A.")
+    addMusic("At Last", "Etta James", "Jazz", "1960", "The Essentian tta James", "English", "U.S.A.")
+
+
+
+
+
+
