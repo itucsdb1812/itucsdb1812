@@ -65,13 +65,25 @@ def register():
         password = form.password.data
         #aynı username var mı yok mu denenecek şimdilik 2 aynı username açabiliyor.
 
-        connection = dbapi2.connect(config)
+        connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
         cursor = connection.cursor()
-        cursor.execute("""INSERT INTO users(email,username,password) VALUES(%s, %s, %s)""",(email,username,password))
-
-        connection.commit()
-        cursor.close()
-        return redirect(url_for("login"))
+        cursor.execute("SELECT * FROM users WHERE username = %s ",[username])
+        if cursor.rowcount > 0:
+            flash('Username already exist!','danger')
+            return redirect(url_for("register"))
+        else:
+            cursor.execute("SELECT * FROM users WHERE email = %s ", [email])
+            if cursor.rowcount > 0:
+                flash('E-mail already exist!', 'danger')
+                cursor.close()
+                return redirect(url_for("register"))
+            else:
+                cursor.execute("INSERT INTO users(email,username,password) VALUES(%s, %s, %s)",
+                               (email, username, password))
+                connection.commit()
+                cursor.close()
+                flash('You are registered.', 'success')
+                return redirect(url_for("login"))
 
     return render_template("register.html", form=form)
 
