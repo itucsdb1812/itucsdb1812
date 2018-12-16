@@ -17,7 +17,7 @@ else:
 @app.route("/")
 def index():
     return render_template("index.html",methods=["POST","GET"])
-
+# INDEX FINAL
 
 # SEARCH CLASS
 class SearchForm(Form):
