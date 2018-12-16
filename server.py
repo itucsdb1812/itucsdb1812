@@ -1,5 +1,5 @@
-from flask import Flask, render_template, url_for, redirect, request, session
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from flask import Flask, render_template, url_for, redirect, request, session, flash
+from wtforms import Form, StringField, TextAreaField, PasswordField, SelectField, validators
 import psycopg2 as dbapi2
 import os
 
@@ -21,13 +21,29 @@ def index():
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    connection = dbapi2.connect(config)
+    search = SearchForm(request.form)
+    connection = dbapi2.connect(dbname='napkin', user='postgres', password='1')
     cursor = connection.cursor()
-    cursor.execute("""SELECT * FROM music""")
+    cursor.execute("SELECT * FROM music")
     getmusics = cursor.fetchall()
     session['getmusics'] = getmusics
+
+    if request.method == 'POST':
+        selecting = search.select.data
+        searchtext = search.search.data
+        if searchtext== '':
+            cursor.execute("SELECT * FROM music")
+            getmusics = cursor.fetchall()
+            session['getmusics'] = getmusics
+            cursor.close()
+        else:
+            cursor.execute("""SELECT * FROM music WHERE """ + selecing + """ LIKE '""" + searchtext + """%'""")
+            getmusics = cursor.fetchall()
+            session['getmusics'] = getmusics
+            cursor.close()
     cursor.close()
-    return render_template("musics.html")
+    return render_template("musics.html",form=search)
+# MUSICS FINAL
 
 # REGISTER -------------
 
