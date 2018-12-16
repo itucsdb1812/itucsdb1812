@@ -3,7 +3,7 @@ from wtforms import Form, StringField, TextAreaField, PasswordField, SelectField
 import psycopg2 as dbapi2
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path = "/imgs", static_folder = "imgs")
 app.secret_key = "super secret key"
 
 DATABASE_URL = os.getenv('DATABASE_URL')
