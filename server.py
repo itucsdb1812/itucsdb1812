@@ -16,6 +16,7 @@ else:
 # INDEX
 @app.route("/")
 def index():
+    session['logged_in'] = False
     return render_template("index.html",methods=["POST","GET"])
 # INDEX FINAL
 
@@ -280,6 +281,8 @@ def deletemusic(musicid):
 # CHOOSEN LIST 
 @app.route("/choosenlist/<string:musicid>/<string:musicname>/<string:musicartist>",methods=["POST","GET"])
 def choosenlist(musicid,musicname,musicartist):
+    if session['logged_in'] != True:
+        return redirect(url_for("login"))
     session['musicid'] = musicid
     session['musicname'] = musicname
     session['musicartist'] = musicartist
@@ -363,6 +366,8 @@ def nextmusic():
 # PLAY MUSIC FROM MUSICS
 @app.route("/playmusicfrommusics/<string:playmusicid>/<string:musicname>/<string:artist>",methods=["POST","GET"])
 def playmusicfrommusics(playmusicid,musicname,artist):
+    if session['logged_in'] != True:
+        return redirect(url_for("login"))
     session['playmusic'] = True
     session['playmusicid'] = playmusicid
     session['playmusicname'] = musicname
