@@ -8,19 +8,65 @@
          <a class="nav-link text-warning" href="{{ url_for('musics') }}"><b>MUSIC LIST</b></a>
     </li>
 
+<div class="bg-dark text-dark rounded" id="navbar">
+     <ul class="navbar-nav navbar-center">
+        <li>
+         {% if session.playmusic %}
+             <a class="nav-link text-dark"> <b>|||||||||||||||</b> </a>
+         {% endif %}
+        </li>
+     </ul>
+</div>
+ <div class="bg-dark text-dark rounded" id="navbar">
+     <ul class="navbar-nav navbar-center">
+        <li>
+         {% if session.playmusic %}
+             <a class="nav-link text-light"> <b></b> </a>
+         {% endif %}
+        </li>
+     </ul>
+</div>
+
+ <div class="bg-light text-dark rounded" id="navbar">
+     <ul class="navbar-nav navbar-center">
+        <li>
+         {% if session.playmusic %}
+             <a class="nav-link text-dark"> <b>{{ session.playmusicartist }} - {{ session.playmusicname }}</b> </a>
+         {% endif %}
+        </li>
+     </ul>
+</div>
+
+
+ <div class="bg-dark text-dark rounded" id="navbar">
+     <ul class="navbar-nav navbar-center">
+        <li>
+         {% if session.playmusic %}
+             <a class="nav-link text-dark"> <b>|</b> </a>
+         {% endif %}
+        </li>
+     </ul>
+</div>
   </ul>
         <div id="navbar">
           <ul class="navbar-nav navbar-right">
             {% if session.logged_in %}
+                {% if session.playmusic %}
+                    <li class="nav-item"><a class="btn btn-danger" href="/stopmusic"><b>STOP</b></a></li>
+                    ||||||
+                     {% endif %}
                  {% if session.username == 'alican' or session.username == 'enes' %}
                      ||||
                     <li class="nav-item"><a href="/admin"><b>Admin Page</b></a></li>
                 {% endif %}
+
                 ||||
-                <li class="nav-item"><a href="/profile"><b>My Profile</b></a></li>
+                <li class="nav-item"><a href="/profile"><b>My Lists</b></a></li>
                 ||||
               <li class="nav-item"><a href="/logout"><b>Logout</b></a></li>
                 ||||
+
+                <li class="nav-item"><label class="text-light"><b>Welcome</b> </label><a href="/settings" class="text-light"><b> {{ session.username }}</b></a></li>
             {% else %}
                 ||||
               <li class="nav-item"><a href="/register"><b>Register</b></a></li>
