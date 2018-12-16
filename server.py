@@ -18,6 +18,15 @@ else:
 def index():
     return render_template("index.html",methods=["POST","GET"])
 
+
+# SEARCH CLASS
+class SearchForm(Form):
+    choices = [('musicname','Music Name'),('artist','Artist'),('musictype','Type'),('releasedate','Date'),
+               ('albumname','Album'),('musiclanguage','Language'),('musiccountry','Country')]
+    select = SelectField('',choices=choices)
+    search = StringField('')
+# SEARCH CLASS FINAL
+
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
