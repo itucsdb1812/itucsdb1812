@@ -30,7 +30,7 @@ class SearchForm(Form):
 # MUSIC HTML
 @app.route("/music",methods=["POST","GET"])
 def musics():
-    search = SearchssForm(request.form)
+    search = SearchForm(request.form)
     connection = dbapi2.connect(config)
     cursor = connection.cursor()
     cursor.execute("""SELECT * FROM music""")
