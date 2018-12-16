@@ -332,6 +332,70 @@ def deletelist(listid):
     return redirect(url_for("profile"))
 # DELETE LIST FINAL
 
+
+# PLAY MUSIC FROM LIST
+@app.route("/playmusicfrommylist/<string:playmusicid>/<string:musicname>/<string:artist>",methods=["POST","GET"])
+def playmusicfrommylist(playmusicid,musicname,artist):
+    session['playmusic'] = True
+    session['playmusicid'] = playmusicid
+    session['playmusicname'] = musicname
+    session['playmusicartist'] = artist
+    return redirect(url_for("mylist", id=session['listid']))
+# PLAY MUSIC FROM LIST FINAL
+
+# NEXT MUSIC FROM LIST
+@app.route("/nextmusic",methods=["POST","GET"])
+def nextmusic():
+    for x in range(len(session['musiclist'])):
+        if session['musiclist'][x][0] == int(session['playmusicid']):
+            if x == (len(session['musiclist'])-1):
+                session['playmusicid'] = str(session['musiclist'][0][0])
+                session['playmusicname'] = session['musiclist'][0][1]
+                session['playmusicartist'] = session['musiclist'][0][2]
+            else:
+                session['playmusicid'] = str(session['musiclist'][x+1][0])
+                session['playmusicname'] = session['musiclist'][x+1][1]
+                session['playmusicartist'] = session['musiclist'][x+1][2]
+            break
+    return render_template("mylist.html")
+# NEXT MUSIC FROM LIST FINAL
+
+# PLAY MUSIC FROM MUSICS
+@app.route("/playmusicfrommusics/<string:playmusicid>/<string:musicname>/<string:artist>",methods=["POST","GET"])
+def playmusicfrommusics(playmusicid,musicname,artist):
+    session['playmusic'] = True
+    session['playmusicid'] = playmusicid
+    session['playmusicname'] = musicname
+    session['playmusicartist'] = artist
+    return redirect(request.referrer)
+# PLAY MUSIC FROM MUSICS FINAL
+
+
+# NEXT MUSIC FROM MUSICS
+@app.route("/nextallmusic",methods=["POST","GET"])
+def nextallmusic():
+    for x in range(len(session['getmusics'])):
+        if session['getmusics'][x][0] == int(session['playmusicid']):
+            if x == (len(session['getmusics'])-1):
+                session['playmusicid'] = str(session['getmusics'][0][0])
+                session['playmusicname'] = session['getmusics'][0][1]
+                session['playmusicartist'] = session['getmusics'][0][2]
+            else:
+                session['playmusicid'] = str(session['getmusics'][x+1][0])
+                session['playmusicname'] = session['getmusics'][x+1][1]
+                session['playmusicartist'] = session['getmusics'][x+1][2]
+            break
+    return redirect(url_for("musics"))
+# NEXT MUSIC FROM MUSICS
+
+
+# STOP MUSIC
+@app.route("/stopmusic",methods=["POST","GET"])
+def stopmusic():
+    session['playmusic'] = False
+    return redirect(request.referrer)
+# STOP MUSIC FINAL
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
