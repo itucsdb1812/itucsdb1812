@@ -10,12 +10,7 @@
 
 <br>
 
-{% if session.ADDED %}
-       <div class="bg-success text-dark w-25 rounded">
-      <center> <h4> Music Added to List </h4> </center>
-     </div>
-<br>
-    {% endif %}
+
   {% from "errormacro.html" import render_field %}
   <form method="POST" action="">
     <div class="form-group w-50">
@@ -48,5 +43,5 @@
     </div>
     <p><input type="submit" class="btn btn-primary" value="Add Music"></p>
   </form>
-
+  <br><br><br><br>
 {% endblock %}
