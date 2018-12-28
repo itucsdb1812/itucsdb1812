@@ -4,28 +4,18 @@ Developer Guide
 Database Design
 ---------------
 
-**explain the database design of your project**
+.. figure:: ERD.png
+   :scale: 50 %
+   :alt: map to buried treasure
 
-**include the E/R diagram(s)**
+   Entity Relationship Diagram. The tables are explained in the sections
+   of the person who implemented them.
 
 Code
 ----
 
-**explain the technical structure of your code**
-
-**to include a code listing, use the following example**::
-
-   .. code-block:: python
-
-      class Foo:
-
-         def __init__(self, x):
-            self.x = x
 
 .. toctree::
 
    member1
    member2
-   member3
-   member4
-   member5
