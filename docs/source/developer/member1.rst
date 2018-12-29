@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 .. include:: <isonum.txt>
 .. role:: sql(code)
    :language: sql
    :class: highlight
-
 
 Parts Implemented by Enes Boynukalın
 =====================================
@@ -423,7 +421,4 @@ It works similarly to the change password function, but it is enough to enter on
 
 
 When the ``POST`` method is executed, the values entered into the field are passed to the variables if they satisfy the validator conditions. If the entered e-mails are not the same, it gives an error. However, if they match, the current e-mail address of the user is replaced by the :sql:`UPDATE` query.
-=======
-Parts Implemented by Enes Boynukalın
-================================
->>>>>>> e8d495bb6285f1b967d29f34d0dbbc384ac1286e
+
