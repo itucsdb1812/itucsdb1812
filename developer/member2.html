@@ -1,0 +1,605 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Alican Kurt &mdash; ITUCSDB1812  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Parts Implemented by Enes Boynukalın" href="member1.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1812
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#database-design">Database Design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#code">Code</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="member1.html">Parts Implemented by Enes Boynukalın</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parts Implemented by Alican Kurt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tables"><strong>Tables</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-implementation"><strong>Functions Implementation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1812</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Alican Kurt</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/member2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-alican-kurt">
+<h1>Parts Implemented by Alican Kurt<a class="headerlink" href="#parts-implemented-by-alican-kurt" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tables">
+<h2><strong>Tables</strong><a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="userplaylist-table">
+<h3>UserPlaylist Table<a class="headerlink" href="#userplaylist-table" title="Permalink to this headline">¶</a></h3>
+<p>This table holds a users playlists and a boolean for if the playlist is a favorite one.</p>
+<div class="section" id="attributes-of-userplaylist-table">
+<h4>Attributes of UserPlaylist Table<a class="headerlink" href="#attributes-of-userplaylist-table" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">PLAYLIST_ID</span></span></code></dt>
+<dd><ul class="first last">
+<li><code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">SERIAL</span></span> <span class="keyword"><span class="pre">PRIMARY</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> Primary key of the <code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">USERPLAYLIST</span></span></code> table.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">USERID</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">FOREIGN</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> References Users table (Id)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">IS_FAVOURITE</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">1</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Favourite flag for the users playlists.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">PLAYLISTNAME</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">USERID</span></span><span class="punctuation"><span class="pre">)</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Constraint:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span></code></li>
+<li><em>Explanation:</em> These two attributes are unique in combination because
+they can not all be the same for different rows in the database.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="initialization-of-userplaylist-table">
+<h4>Initialization of UserPlaylist Table<a class="headerlink" href="#initialization-of-userplaylist-table" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS USERPLAYLIST (</span>
+<span class="ss">    PLAYLIST_ID    SERIAL PRIMARY KEY,</span>
+<span class="ss">    PLAYLISTNAME   VARCHAR(50),</span>
+<span class="ss">    USERID         INTEGER REFERENCES USERS (ID)</span>
+<span class="ss">                   ON UPDATE CASCADE</span>
+<span class="ss">                   ON DELETE CASCADE,</span>
+<span class="ss">    IS_FAVORITE    VARCHAR(1),</span>
+<span class="ss">    UNIQUE(PLAYLISTNAME, USERID)</span>
+<span class="ss">)  &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="playlistmusic-table">
+<h3>PlaylistMusic Table<a class="headerlink" href="#playlistmusic-table" title="Permalink to this headline">¶</a></h3>
+<p>This table holds the music information inside a users playlist.</p>
+<div class="section" id="attributes-of-playlistmusic-table">
+<h4>Attributes of PlaylistMusic Table<a class="headerlink" href="#attributes-of-playlistmusic-table" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">PLAYLISTMUSIC_ID</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">SERIAL</span></span> <span class="keyword"><span class="pre">PRIMARY</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> Primary key of the <code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">PLAYLISTMUSIC</span></span></code> table.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">USERPLAYLISTID</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">FOREIGN</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> References UserPlaylist table (Playlist_Id).</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSICID</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">FOREIGN</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> References Music table (Music_Id).</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span><span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">USERPLAYLISTID</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">MUSICID</span></span><span class="punctuation"><span class="pre">)</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Constraint:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span></code></li>
+<li><em>Explanation:</em> These two attributes are unique in combination because
+they can not all be the same for different rows in the database.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="initialization-of-playlistmusic-table">
+<h4>Initialization of PlaylistMusic Table<a class="headerlink" href="#initialization-of-playlistmusic-table" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>    <span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS PLAYLISTMUSIC (</span>
+<span class="ss">    ID               SERIAL PRIMARY KEY,</span>
+<span class="ss">    USERPLAYLISTID   INTEGER REFERENCES USERPLAYLIST (PLAYLIST_ID)</span>
+<span class="ss">                     ON UPDATE CASCADE</span>
+<span class="ss">                     ON DELETE CASCADE,</span>
+<span class="ss">    MUSICID          INTEGER REFERENCES MUSIC (MUSIC_ID)</span>
+<span class="ss">                     ON UPDATE CASCADE</span>
+<span class="ss">                     ON DELETE CASCADE,</span>
+<span class="ss">    UNIQUE(USERPLAYLISTID, MUSICID)</span>
+<span class="ss">)  &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-implementation">
+<h2><strong>Functions Implementation</strong><a class="headerlink" href="#functions-implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="user-my-lists-page">
+<h3>User My lists Page<a class="headerlink" href="#user-my-lists-page" title="Permalink to this headline">¶</a></h3>
+<p>This field displays the user’s playlists in my playlists page. It can create a new list and enter them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">userplaylist</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">listname</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Listname&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/profile&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">profile</span><span class="p">():</span>
+    <span class="n">userid</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;userid&#39;</span><span class="p">]</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM userplaylist WHERE userid = </span><span class="si">%s</span><span class="s2"> ORDER BY playlist_id&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">userid</span><span class="p">])</span>
+    <span class="n">userlists</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;userlists&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">userlists</span>
+
+    <span class="n">form</span> <span class="o">=</span> <span class="n">userplaylist</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">listname</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">listname</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM userplaylist WHERE playlistname = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,[</span><span class="n">listname</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;This list already exists!&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;INSERT INTO userplaylist(playlistname,userid,is_favorite) VALUES(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">listname</span><span class="p">,</span> <span class="n">userid</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;profile&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;profile.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A class was created using the <code class="docutils literal notranslate"><span class="pre">Wtforms</span> <span class="pre">module</span></code>. From this class only <code class="docutils literal notranslate"><span class="pre">listname</span></code> was received. The <code class="docutils literal notranslate"><span class="pre">userid</span></code> information is taken from the session variable when the user wants to create a new playlist and that user’s entire list is sent to the <code class="docutils literal notranslate"><span class="pre">session-&gt;userlists</span></code> object. This list is printed out on its corresponding <code class="docutils literal notranslate"><span class="pre">html</span></code> page row by row. The <code class="docutils literal notranslate"><span class="pre">POST</span></code> method runs when prompted to create a playlist, and the user is prompted to enter a <code class="docutils literal notranslate"><span class="pre">listname</span></code>. If there is a list with the same name, it gives an error message. At least 4 characters are required. If there is no problem, the list is added to the table with <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">INSERT</span></span></code> method and the page is refreshed. The newly added list now appears in the my lists page.</p>
+</div>
+<div class="section" id="show-playlist-songs">
+<h3>Show Playlist songs<a class="headerlink" href="#show-playlist-songs" title="Permalink to this headline">¶</a></h3>
+<p>The function used to list the contents of the lists, in other words, the songs in them. Clicking on any list goes to that list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/mylist/&lt;string:id&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">mylist</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;listid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">id</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM playlistmusic WHERE userplaylistid = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">id</span><span class="p">])</span>
+    <span class="n">musiclist</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+    <span class="n">music</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">musiclist</span><span class="p">:</span>
+        <span class="n">musicid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># musicID</span>
+        <span class="n">cursor2</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor2</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM music WHERE music_id = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">musicid</span><span class="p">])</span>
+        <span class="n">music</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cursor2</span><span class="o">.</span><span class="n">fetchone</span><span class="p">())</span>
+        <span class="n">cursor2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">cursor3</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor3</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM userplaylist WHERE playlist_id = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,[</span><span class="nb">id</span><span class="p">])</span>
+    <span class="n">listname</span> <span class="o">=</span> <span class="n">cursor3</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;listname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">listname</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">music</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="n">cursor3</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;mylist.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function used to list the contents of the lists, in other words, the songs in them. Clicking on any list goes to that list.
+The <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the list is sent to this function. All songs in the list belonging to this <code class="docutils literal notranslate"><span class="pre">ID</span></code> are then passed to a variable with the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">SELECT</span></span></code> query. A music array is then created as each music will be sorted. The array is then filled with the for loop. This array is then added to the session and displayed in a table in <code class="docutils literal notranslate"><span class="pre">html</span></code>.</p>
+</div>
+<div class="section" id="choose-which-playlist-to-add-the-music-to">
+<h3>Choose which PlayList to add the Music to<a class="headerlink" href="#choose-which-playlist-to-add-the-music-to" title="Permalink to this headline">¶</a></h3>
+<p>When a user wants to add a song to the playlist, all Playlists that the user has are shown and asked to select a playlist.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/choosenlist/&lt;string:musicid&gt;/&lt;string:musicname&gt;/&lt;string:musicartist&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">choosenlist</span><span class="p">(</span><span class="n">musicid</span><span class="p">,</span><span class="n">musicname</span><span class="p">,</span><span class="n">musicartist</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;logged_in&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;login&quot;</span><span class="p">))</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">musicid</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">musicname</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">musicartist</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;choosenlist.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ID</span></code>, <code class="docutils literal notranslate"><span class="pre">music</span> <span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">artist</span></code> information of the music to be added is sent to the function and this information is stored into the session object. Then, the user is expected to select a list.</p>
+</div>
+<div class="section" id="add-music-to-playlist">
+<h3>Add Music to Playlist<a class="headerlink" href="#add-music-to-playlist" title="Permalink to this headline">¶</a></h3>
+<p>This function works when the user chooses any list from the choose playlists page. If there is not a duplicate of the music to be added to the selected list, it is added without any errors. But if there is already a duplicate, a flash message error is given.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/addmusictothelist/&lt;string:listid&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">addmusictothelist</span><span class="p">(</span><span class="n">listid</span><span class="p">):</span>
+    <span class="n">musicid</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicid&#39;</span><span class="p">]</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM playlistmusic WHERE userplaylistid = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,[</span><span class="n">listid</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">musicid</span><span class="p">):</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;There is already music in the chosen list!&#39;</span><span class="p">,</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">choosenlist</span><span class="p">(</span><span class="n">musicid</span><span class="p">,</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicname&#39;</span><span class="p">],</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musicartist&#39;</span><span class="p">])</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;INSERT INTO playlistmusic(userplaylistid,musicid) VALUES(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">listid</span><span class="p">,</span> <span class="n">musicid</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Chosen music is added to the list.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;mylist&quot;</span><span class="p">,</span><span class="nb">id</span><span class="o">=</span><span class="n">listid</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the music that the user wants to add is taken from <code class="docutils literal notranslate"><span class="pre">session-&gt;musicid</span></code>. With the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">SELECT</span></span></code> query, the selected list is compared to all music in the database. If there’s no match, the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">INSERT</span></span></code> query will add the music to the selected list.</p>
+</div>
+<div class="section" id="remove-music-from-playlist">
+<h3>Remove Music from Playlist<a class="headerlink" href="#remove-music-from-playlist" title="Permalink to this headline">¶</a></h3>
+<p>The person can remove any of the music in his / her own lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/removemusicfromlist/&lt;string:musicidd&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">removemusicfromlist</span><span class="p">(</span><span class="n">musicidd</span><span class="p">):</span>
+    <span class="n">listid</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;listid&#39;</span><span class="p">]</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;DELETE FROM playlistmusic WHERE userplaylistid = </span><span class="si">%s</span><span class="s2"> AND musicid = </span><span class="si">%s</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">listid</span><span class="p">,</span><span class="n">musicidd</span><span class="p">))</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Chosen music has been removed from the list.&#39;</span><span class="p">,</span><span class="s1">&#39;success&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mylist</span><span class="p">(</span><span class="n">listid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the remove button is pressed, the <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the music in the selected row is taken and the information of that music is deleted with the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">DELETE</span></span></code> query from the playlistmusic table.</p>
+</div>
+<div class="section" id="delete-playlist">
+<h3>Delete Playlist<a class="headerlink" href="#delete-playlist" title="Permalink to this headline">¶</a></h3>
+<p>User can easily delete their own lists by clicking the <cite>delete</cite> button.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/deletelist/&lt;string:listid&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">deletelist</span><span class="p">(</span><span class="n">listid</span><span class="p">):</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;DELETE FROM userplaylist WHERE playlist_id = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">listid</span><span class="p">])</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Chosen list has been removed.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;profile&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <cite>ID</cite> of the list that the user wants to delete is sent to the function and then it is deleted from the table with <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">DELETE</span></span></code> query. All of the information in that list is deleted from the table when this operation is performed.</p>
+</div>
+<div class="section" id="play-music-from-playlist">
+<h3>Play Music from Playlist<a class="headerlink" href="#play-music-from-playlist" title="Permalink to this headline">¶</a></h3>
+<p>When the play button of the songs in the user playlists is pressed, it performs the task of showing the song playing in the navigation panel on the upper side.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/playmusicfrommylist/&lt;string:playmusicid&gt;/&lt;string:musicname&gt;/&lt;string:artist&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">playmusicfrommylist</span><span class="p">(</span><span class="n">playmusicid</span><span class="p">,</span><span class="n">musicname</span><span class="p">,</span><span class="n">artist</span><span class="p">):</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">playmusicid</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">musicname</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">artist</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;mylist&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;listid&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>When the function is executed by the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method, the <code class="docutils literal notranslate"><span class="pre">playmusicid</span></code>, <code class="docutils literal notranslate"><span class="pre">musicname</span></code> and <code class="docutils literal notranslate"><span class="pre">artist</span></code> information is sent to the function. These values are assigned to the session object. Navigation shows the song played on the top by taking the information from the session.</p>
+</div>
+<div class="section" id="play-music-from-music-database">
+<h3>Play Music from Music Database<a class="headerlink" href="#play-music-from-music-database" title="Permalink to this headline">¶</a></h3>
+<p>When the play button of the songs in the music database list is pressed, it performs the task of showing the song playing in the navigation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/playmusicfrommusics/&lt;string:playmusicid&gt;/&lt;string:musicname&gt;/&lt;string:artist&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">playmusicfrommusics</span><span class="p">(</span><span class="n">playmusicid</span><span class="p">,</span><span class="n">musicname</span><span class="p">,</span><span class="n">artist</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;logged_in&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;login&quot;</span><span class="p">))</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">playmusicid</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">musicname</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">artist</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">referrer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the function is executed by the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method, the <code class="docutils literal notranslate"><span class="pre">playmusicid</span></code>, <code class="docutils literal notranslate"><span class="pre">musicname</span></code> and <code class="docutils literal notranslate"><span class="pre">artist</span></code> information is sent to the function. These values are assigned to the session object. Navigation panel shows the song played on the top by taking the information from the session.</p>
+</div>
+<div class="section" id="go-to-next-music-while-playing-from-a-playlist">
+<h3>Go to next Music while playing from a Playlist<a class="headerlink" href="#go-to-next-music-while-playing-from-a-playlist" title="Permalink to this headline">¶</a></h3>
+<p>If a music is playing, a next button appears. Next button will move to the next song according to where it is playing. When a music is played from a playlist in this function, the next song in the list is played with the next button.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/nextmusic&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">nextmusic</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;musiclist&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;mylist.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is a for loop which has a max iteration of the amount of songs in that playlist. The <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the playing song is in that list and plays the next song in the list. If the current song is the last song, the playlist returns to the beginning and plays the first song.</p>
+</div>
+<div class="section" id="go-to-next-music-while-play-from-the-database">
+<h3>Go to next Music while play from the Database<a class="headerlink" href="#go-to-next-music-while-play-from-the-database" title="Permalink to this headline">¶</a></h3>
+<p>If a music is playing, a next button appears. Next button will move to the next song according to where it is playing. In this function, the next song in the playlist is played with the next button when a music is played in the music list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/nextallmusic&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">nextallmusic</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">])):</span>
+        <span class="k">if</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusicartist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">][</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;musics&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>There is a for loop which has a max iteration of the amount of songs in the music database. The <code class="docutils literal notranslate"><span class="pre">ID</span></code> of the playing song is in that list and plays the next song in the list. If the current song is the last song, the playlist returns to the beginning and plays the first song.</p>
+</div>
+<div class="section" id="stop-playing-music">
+<h3>Stop playing Music<a class="headerlink" href="#stop-playing-music" title="Permalink to this headline">¶</a></h3>
+<p>Stops the playing song.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/stopmusic&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">stopmusic</span><span class="p">():</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;playmusic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">referrer</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Session-&gt;playmusic</span></code> value is cleared. After this, the song is stopped.</p>
+</div>
+<div class="section" id="choose-a-playlist-as-favourite">
+<h3>Choose a Playlist as favourite<a class="headerlink" href="#choose-a-playlist-as-favourite" title="Permalink to this headline">¶</a></h3>
+<p>The users can choose to make a playlist as favorite from their playlists. The selected favorite lists are shown ready for quick access on the left panel.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/is_favorite/&lt;string:listid&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">is_favorite</span><span class="p">(</span><span class="n">listid</span><span class="p">):</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;UPDATE userplaylist SET is_favorite = &#39;1&#39; WHERE playlist_id = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">listid</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39;&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Clicking on the favorite button next to each list will send the id of that list to this function. And this playlist table is given a 1 (True) value in the <code class="docutils literal notranslate"><span class="pre">Is_Favourite</span></code> attribute.</p>
+</div>
+<div class="section" id="choose-playlist-as-not-favourite">
+<h3>Choose Playlist as not favourite<a class="headerlink" href="#choose-playlist-as-not-favourite" title="Permalink to this headline">¶</a></h3>
+<p>The user may decide that his favorite playlists are no longer favorites and may want to remove some of the lists from the left panel. This function is activated here and is removed from the favorite lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/isnot_favorite/&lt;string:listid&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">isnot_favorite</span><span class="p">(</span><span class="n">listid</span><span class="p">):</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;UPDATE userplaylist SET is_favorite = &#39;0&#39; WHERE playlist_id = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">listid</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39;&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;profile&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>A list appears green when a favorite is made. And again, when it is not a favorite it returns to the blue state. The <code class="docutils literal notranslate"><span class="pre">Is_Favourite</span></code> attribute is returned to the value 0 with the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UPDATE</span></span></code> query.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="member1.html" class="btn btn-neutral" title="Parts Implemented by Enes Boynukalın" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1812
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

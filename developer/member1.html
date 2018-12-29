@@ -1,0 +1,674 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parts Implemented by Enes Boynukalın &mdash; ITUCSDB1812  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parts Implemented by Alican Kurt" href="member2.html" />
+    <link rel="prev" title="Developer Guide" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1812
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user/index.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#database-design">Database Design</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#code">Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Parts Implemented by Enes Boynukalın</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tables"><strong>Tables</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functions-implementation"><strong>Functions Implementation</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="member2.html">Parts Implemented by Alican Kurt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1812</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Developer Guide</a> &raquo;</li>
+        
+      <li>Parts Implemented by Enes Boynukalın</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer/member1.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-enes-boynukalin">
+<h1>Parts Implemented by Enes Boynukalın<a class="headerlink" href="#parts-implemented-by-enes-boynukalin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tables">
+<h2><strong>Tables</strong><a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="users-table">
+<h3>Users Table<a class="headerlink" href="#users-table" title="Permalink to this headline">¶</a></h3>
+<p>This table holds a users information when they register to the site.</p>
+<div class="section" id="attributes-of-users-table">
+<h4>Attributes of Users Table<a class="headerlink" href="#attributes-of-users-table" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">UserID</span></span></code></dt>
+<dd><ul class="first last">
+<li><code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">SERIAL</span></span> <span class="keyword"><span class="pre">PRIMARY</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> Primary key of the <code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">USERS</span></span></code> table.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">EMAIL</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">100</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Constraint:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span></code></li>
+<li><em>Explanation:</em> Email of the user.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">USERNAME</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">100</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Constraint:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span></code></li>
+<li><em>Explanation:</em> Username of the user.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">PASSWORD</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">100</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Password of the user.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="initialization-of-users-table">
+<h4>Initialization of Users Table<a class="headerlink" href="#initialization-of-users-table" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">INIT_STATEMENTS</span> <span class="o">=</span> <span class="p">[</span>
+
+   <span class="ss">&quot;&quot;&quot;CREATE TABLE IF NOT EXISTS USERS (</span>
+<span class="ss">      ID         SERIAL PRIMARY KEY,</span>
+<span class="ss">      EMAIL          VARCHAR(100) UNIQUE,</span>
+<span class="ss">      USERNAME       VARCHAR(100) UNIQUE,</span>
+<span class="ss">      PASSWORD       VARCHAR(100)</span>
+<span class="ss">  )&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="music-table">
+<h3>Music Table<a class="headerlink" href="#music-table" title="Permalink to this headline">¶</a></h3>
+<p>This table holds the various information relating to a music.</p>
+<div class="section" id="attributes-of-music-table">
+<h4>Attributes of Music Table<a class="headerlink" href="#attributes-of-music-table" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSIC_ID</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">SERIAL</span></span> <span class="keyword"><span class="pre">PRIMARY</span></span> <span class="keyword"><span class="pre">KEY</span></span></code></li>
+<li><em>Explanation:</em> Primary key of the <code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSIC</span></span></code> table.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSICNAME</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Name of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">ARTIST</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Artist of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSICTYPE</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Type of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">RELEASEDATE</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Release date of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">ALBUMNAME</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Album name of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSICLANGUAGE</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Language of the music.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="name"><span class="pre">MUSICCOUNTRY</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Type:</em> <code class="code highlight sql docutils literal notranslate"><span class="name builtin"><span class="pre">VARCHAR</span></span><span class="punctuation"><span class="pre">(</span></span><span class="literal number integer"><span class="pre">50</span></span><span class="punctuation"><span class="pre">)</span></span></code></li>
+<li><em>Explanation:</em> Country where the music is from.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span> <span class="punctuation"><span class="pre">(</span></span><span class="name"><span class="pre">MUSICNAME</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">ARTIST</span></span><span class="punctuation"><span class="pre">,</span></span> <span class="name"><span class="pre">ALBUMNAME</span></span><span class="punctuation"><span class="pre">)</span></span></code></dt>
+<dd><ul class="first last">
+<li><em>Constraint:</em> <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UNIQUE</span></span></code></li>
+<li><em>Explanation:</em> These three attributes are unique in combination because
+they can not all be the same for different rows in the database.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="initialization-of-music-table">
+<h4>Initialization of Music Table<a class="headerlink" href="#initialization-of-music-table" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS MUSIC (</span>
+<span class="ss">    MUSIC_ID         SERIAL PRIMARY KEY,</span>
+<span class="ss">    MUSICNAME        VARCHAR(50),</span>
+<span class="ss">    ARTIST           VARCHAR(50),</span>
+<span class="ss">    MUSICTYPE        VARCHAR(50),</span>
+<span class="ss">    RELEASEDATE      VARCHAR(50),</span>
+<span class="ss">    ALBUMNAME        VARCHAR(50),</span>
+<span class="ss">    MUSICLANGUAGE    VARCHAR(50),</span>
+<span class="ss">    MUSICCOUNTRY     VARCHAR(50),</span>
+<span class="ss">    UNIQUE (MUSICNAME, ARTIST, ALBUMNAME)</span>
+<span class="ss">)  &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-implementation">
+<h2><strong>Functions Implementation</strong><a class="headerlink" href="#functions-implementation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-music-to-the-database">
+<h3>Add Music to the database<a class="headerlink" href="#add-music-to-the-database" title="Permalink to this headline">¶</a></h3>
+<p>This function deals with  the adding music process, however only the admins are allowed. It is not allowed to add the same <code class="docutils literal notranslate"><span class="pre">MusicName</span></code>, <code class="docutils literal notranslate"><span class="pre">Artist</span></code> and <code class="docutils literal notranslate"><span class="pre">Albumname</span></code> for a music.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MusicForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">musicname</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">artist</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">musictype</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">)])</span>
+    <span class="n">albumname</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">language</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/addmusic&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">addmusic</span><span class="p">():</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">session</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;alican&#39;</span> <span class="ow">or</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;enes&#39;</span><span class="p">):</span>
+        <span class="n">form2</span> <span class="o">=</span> <span class="n">MusicForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form2</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+            <span class="n">musicname</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">musicname</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">artist</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">artist</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">musictype</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">musictype</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">albumname</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">albumname</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">language</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">language</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">country</span> <span class="o">=</span> <span class="n">form2</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">data</span>
+
+            <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM music WHERE musicname = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">musicname</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">m</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">artist</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                        <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;The music is already in the list.&#39;</span><span class="p">,</span><span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+                        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;addmusic&#39;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+                    <span class="sd">&quot;&quot;&quot;INSERT INTO music(musicname,artist,musictype,releasedate,albumname,musiclanguage,musiccountry) VALUES(%s, %s, %s, %s, %s, %s, %s)&quot;&quot;&quot;</span><span class="p">,</span>
+                    <span class="p">(</span><span class="n">musicname</span><span class="p">,</span> <span class="n">artist</span><span class="p">,</span> <span class="n">musictype</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">albumname</span><span class="p">,</span> <span class="n">language</span><span class="p">,</span> <span class="n">country</span><span class="p">))</span>
+                <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Music Added to List.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;addmusic&#39;</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;addmusic.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;You are not admin!&#39;</span><span class="p">,</span> <span class="s1">&#39;warning&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A class was created using the <code class="docutils literal notranslate"><span class="pre">wtforms</span></code> library. The fields in the music table were defined as fields of the object and validators were used. Validators allow error checking for wrong character inputs as well as the maximum and minimum number of characters.</p>
+<p>Next the database connection is activated. If no page is processed with <code class="docutils literal notranslate"><span class="pre">POST</span></code> method, the <code class="docutils literal notranslate"><span class="pre">html</span></code> page is set the usual way. However, when we fill in the required fields and press the Add button, the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method is activated. And the addition is done.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">input</span></code> from the <code class="docutils literal notranslate"><span class="pre">html</span></code> is taken and given to certain variables, then checked whether such a music has already been added. If already added, the flash message will show an error. If there is no duplicate data already, <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">INSERT</span></span></code> query is done successfully and the music is added to the table. If a non-admin attempts to enter the add music page with the <code class="docutils literal notranslate"><span class="pre">GET</span></code> method, an error message that they should be admin to the user is displayed.</p>
+</div>
+<div class="section" id="delete-music-from-the-database">
+<h3>Delete Music from the database<a class="headerlink" href="#delete-music-from-the-database" title="Permalink to this headline">¶</a></h3>
+<p>Deletes the desired music from the table. This authorization is defined only for the <code class="docutils literal notranslate"><span class="pre">admins</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/deletemusic/&lt;string:musicid&gt;&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">deletemusic</span><span class="p">(</span><span class="n">musicid</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;alican&#39;</span> <span class="ow">or</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;enes&#39;</span><span class="p">:</span>
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;DELETE FROM music WHERE music_id = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">musicid</span><span class="p">])</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Chosen music has been deleted.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;musics&quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">html</span></code> page, when the delete button is clicked by the <code class="docutils literal notranslate"><span class="pre">admin</span></code>, the id is sent to this function and the deletion is done by the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">DELETE</span></span></code> query.</p>
+</div>
+<div class="section" id="search-or-list-the-whole-music-database">
+<h3>Search or list the whole music database<a class="headerlink" href="#search-or-list-the-whole-music-database" title="Permalink to this headline">¶</a></h3>
+<p>Music can be listed according to the desired search query. Detailed search is possible for the following attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Music</span> <span class="pre">Name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Artist</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Type</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Release</span> <span class="pre">Date</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Album</span> <span class="pre">name</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Language</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Country</span></code></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SearchForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">choices</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;musicname&#39;</span><span class="p">,</span><span class="s1">&#39;Music Name&#39;</span><span class="p">),(</span><span class="s1">&#39;artist&#39;</span><span class="p">,</span><span class="s1">&#39;Artist&#39;</span><span class="p">),(</span><span class="s1">&#39;musictype&#39;</span><span class="p">,</span><span class="s1">&#39;Type&#39;</span><span class="p">),(</span><span class="s1">&#39;releasedate&#39;</span><span class="p">,</span><span class="s1">&#39;Date&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s1">&#39;albumname&#39;</span><span class="p">,</span><span class="s1">&#39;Album&#39;</span><span class="p">),(</span><span class="s1">&#39;musiclanguage&#39;</span><span class="p">,</span><span class="s1">&#39;Language&#39;</span><span class="p">),(</span><span class="s1">&#39;musiccountry&#39;</span><span class="p">,</span><span class="s1">&#39;Country&#39;</span><span class="p">)]</span>
+    <span class="n">select</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">choices</span><span class="o">=</span><span class="n">choices</span><span class="p">)</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/music&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">musics</span><span class="p">():</span>
+    <span class="n">search</span> <span class="o">=</span> <span class="n">SearchForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM music&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">getmusics</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getmusics</span>
+
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">selecting</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">select</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">searchtext</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">search</span><span class="o">.</span><span class="n">data</span>
+        <span class="k">if</span> <span class="n">searchtext</span><span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM music&quot;&quot;&quot;</span><span class="p">)</span>
+            <span class="n">getmusics</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getmusics</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM music WHERE &quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">selecting</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot; iLIKE &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">searchtext</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;%&#39;&quot;&quot;&quot;</span><span class="p">)</span>
+            <span class="n">getmusics</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+            <span class="n">session</span><span class="p">[</span><span class="s1">&#39;getmusics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">getmusics</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;musics.html&quot;</span><span class="p">,</span><span class="n">form</span><span class="o">=</span><span class="n">search</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this function, music is listed and searched as requested. In this function we used a class which contains a listbox and a textbox. The selected field in the listbox and the string in the textbox are taken and when the search is submitted using the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method, the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">SELECT</span></span></code> query performs the actual search operation.</p>
+</div>
+<div class="section" id="user-login">
+<h3>User login<a class="headerlink" href="#user-login" title="Permalink to this headline">¶</a></h3>
+<p>Standard login process is done. If you have already registered to the site you can log in otherwise it will give an error.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+        <span class="n">password_form</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">exist</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM users WHERE username = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">username</span><span class="p">])</span>
+        <span class="n">row_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+            <span class="n">row_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">exist</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM users WHERE username = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">username</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">row_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">userid</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">password</span> <span class="o">==</span> <span class="n">password_form</span><span class="p">:</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;logged_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">username</span>
+                <span class="n">session</span><span class="p">[</span><span class="s1">&#39;userid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">userid</span>
+                <span class="c1">#</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;profile&quot;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Username or Password is incorrect!&#39;</span><span class="p">,</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">)</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Username or Password is incorrect!&#39;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;login.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It takes the string values entered in the input fields on the html page and the username is searched in the USERS table and password checked. If the password matches the <code class="docutils literal notranslate"><span class="pre">session-&gt;loggid_in</span></code> becomes <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">session-&gt;username</span></code> and <code class="docutils literal notranslate"><span class="pre">session-&gt;userid</span></code> are synchronized to the id of the logged-in user. If the person trying to log in incorrectly enters the username or password field, he or she will receive a flash error message and will not be able to log in.</p>
+</div>
+<div class="section" id="user-logout">
+<h3>User logout<a class="headerlink" href="#user-logout" title="Permalink to this headline">¶</a></h3>
+<p>Standard logout process is done.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/logout&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When the user clicks on logout, the session object is cleared.</p>
+</div>
+<div class="section" id="user-register">
+<h3>User Register<a class="headerlink" href="#user-register" title="Permalink to this headline">¶</a></h3>
+<p>If the user is not a member of the site, he / she cannot login and benefit from many things (play music, create playlists etc.). Therefore they should be registered. It is the process of becoming a standard member.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RegisterForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">25</span><span class="p">)])</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">validators</span><span class="o">.</span><span class="n">Length</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">50</span><span class="p">)])</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span>
+        <span class="n">validators</span><span class="o">.</span><span class="n">DataRequired</span><span class="p">(),</span>
+        <span class="n">validators</span><span class="o">.</span><span class="n">EqualTo</span><span class="p">(</span><span class="s1">&#39;confirm&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Passwords dont match&#39;</span><span class="p">)</span>
+    <span class="p">])</span>
+    <span class="n">confirm</span> <span class="o">=</span> <span class="n">PasswordField</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/register&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">RegisterForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form</span><span class="o">.</span><span class="n">validate</span><span class="p">():</span>
+        <span class="n">email</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">email</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM users WHERE username = </span><span class="si">%s</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">,[</span><span class="n">username</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Username already exist!&#39;</span><span class="p">,</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;register&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM users WHERE email = </span><span class="si">%s</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">email</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;E-mail already exist!&#39;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;register&quot;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;INSERT INTO users(email,username,password) VALUES(</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span><span class="p">,</span>
+                               <span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span>
+                <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+                <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;You are registered.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;login&quot;</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;register.html&quot;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again a class was created using the <code class="docutils literal notranslate"><span class="pre">wtforms</span></code> library. <code class="docutils literal notranslate"><span class="pre">Validator</span></code> checks were performed. Records of the entered username and email are checked. If there is, an error that a user exits with these credentials is given and the user is asked to retry the registration with an unused email and username. If there is no problem with the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">INSERT</span></span></code> query, the user is added to the table and forwarded to the login screen.</p>
+</div>
+<div class="section" id="user-change-password">
+<h3>User change password<a class="headerlink" href="#user-change-password" title="Permalink to this headline">¶</a></h3>
+<p>After logging in, users can click on their name to go to their profile page and change some information. One of them is the password field. Once the user has entered the old password, he / she can write the new password 2 times and change the password.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/changepassword&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">changepassword</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">oldpassword</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;oldpassword&#39;</span><span class="p">]</span>
+        <span class="n">newpasswordfirst</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;newpasswordfirst&#39;</span><span class="p">]</span>
+        <span class="n">newpasswordsecond</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;newpasswordsecond&#39;</span><span class="p">]</span>
+
+        <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;SELECT * FROM users WHERE username = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]])</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">oldpassword</span> <span class="o">!=</span> <span class="n">user</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Old password does not match!&#39;</span><span class="p">,</span> <span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;changepassword&quot;</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">newpasswordfirst</span> <span class="o">!=</span> <span class="n">newpasswordsecond</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;New passwords does not match!&#39;</span><span class="p">,</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;changepassword&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;UPDATE users SET password = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">newpasswordfirst</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; WHERE username = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39;&quot;&quot;&quot;</span> <span class="p">)</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Changed Password.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;settings&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;changepassword.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The fields that the user enters are passed to variables when <code class="docutils literal notranslate"><span class="pre">POST</span></code> method is executed, (when the sumbit button is pressed). Validity checks are made from the table through these variables. The username of the logged-in user is kept in the <code class="docutils literal notranslate"><span class="pre">session-&gt;username</span></code>, and the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">SELECT</span></span></code> query finds this user. When the password field from the table is checked and matched with the <code class="docutils literal notranslate"><span class="pre">oldpassword</span> <span class="pre">field</span></code>, the <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">password</span></code> fields are checked and if they match the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UPDATE</span></span></code> query will update the user’s password.</p>
+</div>
+<div class="section" id="user-change-email-address">
+<h3>User change email address<a class="headerlink" href="#user-change-email-address" title="Permalink to this headline">¶</a></h3>
+<p>It works similarly to the change password function, but it is enough to enter only new E-mails. New email is entered 2 times only to prevent it from entering wrong and e-mail is changed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/changeemail&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">changeemail</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;POST&quot;</span><span class="p">:</span>
+        <span class="n">newemailfirst</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;newemailfirst&#39;</span><span class="p">]</span>
+        <span class="n">newemailsecond</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;newemailsecond&#39;</span><span class="p">]</span>
+
+
+        <span class="k">if</span> <span class="n">newemailfirst</span> <span class="o">!=</span> <span class="n">newemailsecond</span><span class="p">:</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;New E-mail does not match!&#39;</span><span class="p">,</span><span class="s1">&#39;danger&#39;</span><span class="p">)</span>
+            <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;changeemail&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span> <span class="o">=</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;UPDATE users SET email = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">newemailfirst</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39; WHERE username = &#39;&quot;&quot;&quot;</span> <span class="o">+</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;&#39;&quot;&quot;&quot;</span> <span class="p">)</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s1">&#39;Changed E-mail.&#39;</span><span class="p">,</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;settings&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;changeemail.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When the <code class="docutils literal notranslate"><span class="pre">POST</span></code> method is executed, the values entered into the field are passed to the variables if they satisfy the validator conditions. If the entered e-mails are not the same, it gives an error. However, if they match, the current e-mail address of the user is replaced by the <code class="code highlight sql docutils literal notranslate"><span class="keyword"><span class="pre">UPDATE</span></span></code> query.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="member2.html" class="btn btn-neutral float-right" title="Parts Implemented by Alican Kurt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1812
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
